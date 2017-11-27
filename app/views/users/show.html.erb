@@ -1,11 +1,13 @@
+<%= render "shared/navbar" %>
+
 <h1>Users show</h1>
 <p><%= @user.email %></p>
 
-<% @user.plant.each do |plant| %>
-<li><%= plant.picture %></li>
-<li><%= plant.name %></li>
-<li><%= plant.price_per_day %></li>
-<li><%= plant.address %></li>
+<% @user.plants.each do |plant| %>
+<p><%= plant.picture %></p>
+<p><%= plant.name %></p>
+<p><%= plant.price_per_day %></p>
+<p><%= plant.address %></p>
   <% end %>
 
 
