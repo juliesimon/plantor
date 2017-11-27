@@ -1,0 +1,13 @@
+<h1>Users show</h1>
+<p><%= @user.email %></p>
+
+<% @user.plant.each do |plant| %>
+<li><%= plant.picture %></li>
+<li><%= plant.name %></li>
+<li><%= plant.price_per_day %></li>
+<li><%= plant.address %></li>
+  <% end %>
+
+
+
+
