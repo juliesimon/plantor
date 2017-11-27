@@ -1,0 +1,10 @@
+<h1>Add a new plant</h1>
+
+<%= simple_form_for @plant do |f| %>
+  <%= f.input :name, label: 'Name', placeholder: 'Cute, easy-going cactus'%>
+  <%= f.input :instruction, label: 'Instruction', placeholder: 'This cactus is easy to take-care of. It needs to stay away from direct light but still be in a sunny room. Almost never water it !' %>
+  <%= f.input :price_per_day, label: 'Price per day', placeholder: '2' %>
+  <%= f.input :address, label: 'Location of the plant', placeholder: '23 rue du Terreau, 93260 Les Lilas'  %>
+  <%= f.input :category, collection: Plant::CATEGORIES, prompt: "Select a category" %>
+  <%= f.submit "Add a plant", class: "btn btn-secondary" %>
+<% end %>
