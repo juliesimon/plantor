@@ -1,0 +1,10 @@
+  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.4) 50%), url('<%= cl_image_path('cactus_jvafsx') %>')">
+  <div class="card-category">
+    <%= link_to plant.name, plant_path(plant) %>
+  </div> <br>
+  <div class="card-description">
+    <%= plant.category %>
+    <%= plant.price_per_day %> €/jour <br>
+  </div>
+</div>
+
