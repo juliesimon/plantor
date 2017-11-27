@@ -1,0 +1,16 @@
+.btn-home {
+  color: white;
+  padding: 10px 15px;
+  border-color: #7bb955;
+  border-radius: 4px;
+  font-weight: bold;
+  background: #7bb955;
+  transition: background 0.3s ease;
+}
+.btn-home:hover {
+  opacity: 1;
+  background: #97bc80;
+  border-color: #7bb955;
+  text-decoration: none;
+  color: white;
+}
