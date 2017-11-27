@@ -1,6 +1,6 @@
 <% @plants.each do |plant| %>
   <div>
-    <%= plant.name %>
+    <%= link_to plant.name, plant_path(plant) %>
     <%= plant.category %>
     <%= plant.picture %>
     <%= plant.price_per_day %>

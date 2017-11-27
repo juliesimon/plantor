@@ -1,1 +1,8 @@
 <h1><%= @plant.name %></h1>
+
+<%= simple_form_for [@plant, @booking] do |f| %>
+  <%= "Price per day of plant: #{@plant.price_per_day}€" %>
+  <%= f.input :starts_at, class: 'form-control datepicker' %>
+  <%= f.input :ends_at, class: 'form-control datepicker' %>
+  <%= f.submit "Book this plant" %>
+<% end %>
