@@ -1,0 +1,61 @@
+.cards-plants {
+  margin-top: 70px;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+.card-plants {
+  height: 300px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+  background-size: cover !important;
+  background-position: center center;
+  color: white;
+  position: relative;
+  border-radius: 5%;
+  margin-bottom: 30px;
+}
+.card-user-plants {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  width: 40px;
+  border-radius: 50%;
+}
+.card-category-plants {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 15px;
+  text-transform: uppercase;
+}
+.card-description-plants {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+}
+.card-description-plants h2 {
+  font-size: 24px;
+}
+.card-description-plants p {
+  font-size: 14px;
+  opacity: 0.7;
+  font-weight: lighter;
+}
+.card-link-plants {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  z-index: 2;
+  background: black;
+  opacity: 0;
+}
+.card-link-plants:hover {
+  opacity: 0.1;
+  border-radius: 5%;
+}
+.card-price-plants {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}

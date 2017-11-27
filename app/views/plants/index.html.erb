@@ -1,8 +1,9 @@
-<% @plants.each do |plant| %>
-  <div>
-    <%= plant.name %>
-    <%= plant.category %>
-    <%= plant.picture %>
-    <%= plant.price_per_day %>
+<div class="container-plants">
+  <div class="row">
+    <div class="cards-plants">
+      <% @plants.each do |plant| %>
+        <%= render "shared/cards", plant: plant %>
+      <% end %>
+    </div>
   </div>
-<% end %>
+</div>
