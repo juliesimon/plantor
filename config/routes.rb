@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   end
 
   root to: 'pages#home'
-  resources :plants, only: [:index, :show, :new, :create, :update] do
+  resources :plants, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
     resources :bookings, only: [:create, :update]
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
