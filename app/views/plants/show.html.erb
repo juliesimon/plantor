@@ -1,41 +1,36 @@
 <div class="body">
   <%= render "shared/navbar" %>
   <div class="banner-plant" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%),url('<%= cl_image_path('cactus_jvafsx') %>');">
+    <div class="banner-content">
+    <h1><%= @plant.name %></h1>
+  </div>
   </div>
   <div class="container">
-      <div class="row">
-        <div class="col-xs-12 col-sm-5 col-sm-offset-1">
-          <div id="header-plant-details">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/Alexialet", class: "img-circle" %>
-            <h3><%= @plant.name %></h3>
-            <h2>About this plant</h2>
-            <p>Please don't forget to water everyday.</p>
-          </div>
-        </div>
-        <div class="col-xs-12 col-sm-5">
-          <%= render "shared/form" %>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6">
+        <div id="plant-description">
+        <h4>About this plant</h4>
+          <ul>
+            <li><i class="fa fa-leaf" aria-hidden="true"></i> Category:  <p><%= @plant.category %></p></li>
+            <li><i class="fa fa-info" aria-hidden="true"></i> Instructions: <p><%= @plant.instruction %></p></li>
+            <li><i class="fa fa-location-arrow" aria-hidden="true"></i> Address: <p><%= @plant.address %></p></li>
+            <li><i class="fa fa-eur" aria-hidden="true"></i> Price/day: <p><%= @plant.price_per_day %> € </p></li>
+          </ul>
         </div>
       </div>
+      <div class="col-xs-12 col-sm-6">
+        <%= render "shared/form" %>
+      </div>
+    </div>
     <div class="row">
-      <div id="plant-description">
-        <div class="container">
-          Category + Adresse + Instructions
+      <div class="col-xs-12 col-sm-6">
+        <div id="user-description">
+          <h4>About the user</h4>
+          <%= image_tag "https://kitt.lewagon.com/placeholder/users/Alexialet", class: "img-circle" %>
+          <%= @plant.user.email %>
         </div>
       </div>
     </div>
   </div>
-
-<div class="btn-medium"><%= link_to "Back to list", plants_path %></div>
-
-    <h3> Past bookings :</h3>
-    <ul><% @plant.bookings.each do |booking| %>
-        <li>
-          <%= "Booked by #{booking.user.email} from #{booking.starts_at.strftime("%A, %b %d")} to #{booking.ends_at.strftime("%A, %b %d")}"  %>
-        </li>
-      <% end %>
-    </ul>
-</div>
-
-
-<%= link_to "Edit", edit_plant_path(@plant) %>
-<%= link_to "Destroy", plant_path(@plant), method: :delete, data: { confirm: "Are you sure?" } %>
+      <%= link_to "Back to list", plants_path, class: "btn btn-secondary" %>
+      <%= render "shared/footer" %>

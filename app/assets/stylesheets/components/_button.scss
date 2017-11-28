@@ -1,17 +1,28 @@
 .btn-home {
   color: white;
   padding: 10px 15px;
-  border-color: #7bb955;
+  border-color: #146d4f;
   border-radius: 4px;
   font-weight: bold;
   text-decoration: none !important;
-  background: #7bb955;
+  background: #146d4f;
   transition: background 0.3s ease;
 }
 .btn-home:hover {
-  opacity: 1;
-  background: #97bc80;
-  border-color: #7bb955;
-  text-decoration: none !important;
+  opacity: 0.8;
+  background: #146d4f;
+  border-color: #146d4f;
   color: white;
+}
+
+.btn-secondary {
+color: white;
+padding: 6px 10px;
+border-color: #146d4f;
+border-radius: 4px;
+font-size: 17px;
+font-weight: bold;
+text-decoration: none !important;
+background: #146d4f;
+transition: background 0.3s ease;
 }
