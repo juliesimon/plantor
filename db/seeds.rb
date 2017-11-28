@@ -19,10 +19,10 @@ plant_two = Plant.new(name:'Sapin', price_per_day: 50, address: "Paris", categor
 plant_three = Plant.new(name:'Bonsai', price_per_day: 50, address: "Paris", category: "Cactus" )
 plant_four = Plant.new(name:'Orchidée', price_per_day: 50, address: "Paris", category: "Cactus" )
 
-plant_one.remote_photo_url = "http://power.itp.ac.cn/~jmyang/funny/fun4.jpg"
-plant_two.remote_photo_url = "http://power.itp.ac.cn/~jmyang/funny/fun4.jpg"
-plant_three.remote_photo_url = "http://power.itp.ac.cn/~jmyang/funny/fun4.jpg"
-plant_four.remote_photo_url = "http://power.itp.ac.cn/~jmyang/funny/fun4.jpg"
+plant_one.remote_photo_url = "http://www.darxxide.com/wp-content/uploads/uncategorized/Tall-Potted-Plants-Png-plants-png-plant-pots-stands-for-free-u-flowers-images-at-dzzyncom-vine-leaves-free-Tall-Potted-Plants.jpg"
+plant_two.remote_photo_url = "https://cdn2.bigcommerce.com/server5500/mvvy8/products/178/images/529/Idaho_pe_pvc_Premium__24256.1384147395.500.500.jpg?c=2"
+plant_three.remote_photo_url = "https://orig00.deviantart.net/8903/f/2013/079/b/1/png_plant_c_by_moonglowlilly-d5yq2lg.png"
+plant_four.remote_photo_url = "https://media1.popsugar-assets.com/files/thumbor/Hbtl-yWfdFLwgJa7SrLZVk-8c6I/fit-in/1024x1024/filters:format_auto-!!-:strip_icc-!!-/2015/02/27/768/n/1922794/3b6b41fb4f8d6493_ok_7/i/Split-Leaf-Philodendron.jpg"
 
 
 plant_one.user =  alexia
