@@ -1,2 +1,29 @@
-<%= render "shared/navbar_home" %>
-<%= render "shared/footer" %>
+<div id="about">
+  <div class="container">
+    <div class="about-content">
+      <h1>The plantor team: </h1>
+      <ul class="list-inline">
+          <li>
+            <% link_to "https://kitt.lewagon.com/alumni/juliesimon", target: "_blank" %>
+            <%= image_tag "https://kitt.lewagon.com/placeholder/users/juliesimon", class: "img-about" %>
+            <h2>Julie simon</h2>
+          </li>
+          <li>
+            <% link_to "https://kitt.lewagon.com/alumni/guillaumeh95", target: "_blank" %>
+              <%= image_tag "https://kitt.lewagon.com/placeholder/users/guillaumeh95", class: "img-about" %>
+            <h2>Guillaume Hercot</h2>
+          </li>
+          <li>
+            <% link_to "https://kitt.lewagon.com/alumni/mathildanancia", target: "_blank" %>
+              <%= image_tag "https://kitt.lewagon.com/placeholder/users/mathildanancia", class: "img-about" %>
+            <h2>Mathilde Ganancia</h2>
+          </li>
+          <li>
+            <% link_to "https://kitt.lewagon.com/alumni/alexialet", target: "_blank" %>
+              <%= image_tag "https://kitt.lewagon.com/placeholder/users/alexialet", class: "img-about" %>
+            <h2>Alexia Le Tarnec</h2>
+          </li>
+      </ul>
+    </div>
+  </div>
+</div>
