@@ -7,14 +7,16 @@
       <div class="main-content">
         <%= image_tag "https://kitt.lewagon.com/placeholder/users/Alexialet", class: "img-circle" %>
         <h2>User's name</h2>
-        <p><%= @user.email %></p>
-         <%= link_to 'See all my plants', user_path(current_user) %>
+        <%= link_to 'Complete your profile', user_path(current_user), class: "btn-green" %>
+
+        <%= link_to 'See all my plants', user_path(current_user), class: "btn-green" %>
       </div>
     </div>
     <div class="current">
       <div class="stat-content">
         <h3>Pending Plants</h3>
         <p>repositories</p>
+
       </div>
       </div>
     <div class="past">
