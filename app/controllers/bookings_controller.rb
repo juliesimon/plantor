@@ -7,12 +7,17 @@ class BookingsController < ApplicationController
     @booking.total_price = (end_date - start_date) / 86400 * @plant.price_per_day
     @booking.user = current_user
     @booking.plant = @plant
-
+    @booking.status = "pending"
+    authorize @booking
     if @booking.save
       redirect_to plant_path(@plant)
     else
       render 'plants/show'
     end
+  end
+
+  def update
+    authorize @booking
   end
 
   private
