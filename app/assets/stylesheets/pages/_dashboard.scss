@@ -17,11 +17,19 @@
 .main-dash, .past, .current {
   background: white;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  padding: 50px;
+  padding: 10px;
   margin: 10px;
   display: flex;
-  align-items: center;
   justify-content: space-around;
+  ul {
+    padding-left: 0;
+  }
+  h3 {
+    color: $green;
+  }
+  li {
+    list-style: none;
+  }
 }
 @media (max-width: 940px) {
   .profile-dash {
@@ -66,4 +74,19 @@
   background: #37B686;
   opacity: 0.7;
 }
+#validate-green {
+  color: $green;
+  opacity: 0.7;
+  &:hover {
+    opacity: 1;
+  }
+}
+#delete-red {
+  color: $red;
+  opacity: 0.7;
+  &:hover {
+    opacity: 1;
+  }
+}
+
 
