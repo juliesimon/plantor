@@ -8,11 +8,16 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.plant = @plant
     @booking.status = "pending"
+    authorize @booking
     if @booking.save
       redirect_to plant_path(@plant)
     else
       render 'plants/show'
     end
+  end
+
+  def update
+    authorize @booking
   end
 
   private
