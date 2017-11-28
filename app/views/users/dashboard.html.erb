@@ -5,9 +5,10 @@
     <div class="main">
       <div class="main-content">
         <h2>My Dashboard</h2>
-        <%= image_tag "https://kitt.lewagon.com/placeholder/users/Alexialet", class: "img-circle" %>
         <p><%= @user.email %></p>
-        <%= link_to 'See all my plants', user_path(current_user) %>
+        <%= image_tag "https://kitt.lewagon.com/placeholder/users/Alexialet", class: "img-circle" %>
+        <%= link_to 'Complete your profile', user_path(current_user), class: "btn-green" %>
+        <%= link_to 'See all my plants', user_path(current_user), class: "btn-green" %>
       </div>
     </div>
     <div class="current">
