@@ -1,25 +1,21 @@
-class BookingPolicy < ApplicationPolicy
+class UserPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope
     end
   end
 
-  def accept?
+  def show?
     is_user_the_owner_or_admin?
   end
 
-  def decline?
+  def dashboard?
     is_user_the_owner_or_admin?
-  end
-
-  def create?
-    return true
   end
 
   private
 
   def is_user_the_owner_or_admin?
-    user == @user|| user.admin?
+    user == record || user.admin?
   end
 end

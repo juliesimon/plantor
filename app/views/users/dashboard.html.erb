@@ -1,33 +1,47 @@
 
 <%= render "shared/navbar" %>
 <div class="dashboard-container">
-
-<div class="dashboard-container">
-      <div class="profile text-center">
-        <div class="main">
-          <div class="main-content">
-            <img src="images/seb.jpeg" alt="" width="150" class="img-circle">
-            <h2>User's name</h2>
-            <p><%= @user.email %></p>
-             <%= link_to 'See all my plants', user_path(current_user) %>
-          </div>
-        </div>
-        <div class="current">
-          <div class="stat-content">
-            <h3>Pending Plants</h3>
-            <p>repositories</p>
-          </div>
-          </div>
-        <div class="past">
-          <div class="description-content">
-            <h3>Current Plants</h3>
-            <p class="text-justify">
-
-            </p>
-          </div>
-        </div>
+  <div class="profile text-center">
+    <div class="main">
+      <div class="main-content">
+        <h2>My Dashboard</h2>
+        <%= image_tag "https://kitt.lewagon.com/placeholder/users/Alexialet", class: "img-circle" %>
+        <p><%= @user.email %></p>
+        <%= link_to 'See all my plants', user_path(current_user) %>
       </div>
     </div>
+    <div class="current">
+      <div class="stat-content">
+        <h3>Pending Plants</h3>
+        <ul>
+          <% @plants.each do |plant| %>
+            <% plant.bookings.each do |booking| %>
+              <% if booking.status == "pending"%>
+                <li><%= plant.name %> <%= link_to "Accept", accept_booking_path(booking), method: :patch %> <%= link_to "Decline", decline_booking_path(booking), method: :patch %></li>
+              <% end %>
+            <% end %>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <div class="past">
+      <div class="description-content">
+        <h3>Current Plants</h3>
+        <ul>
+          <% @plants.each do |plant| %>
+            <% plant.bookings.each do |booking| %>
+              <% if booking.status == "accepted"%>
+                  <% if (booking.starts_at < Time.now) && (Time.now < booking.ends_at) %>
+                    <li><%= plant.name %></li>
+                  <% end %>
+              <% end %>
+            <% end %>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 
