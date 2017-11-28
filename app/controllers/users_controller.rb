@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
   def dashboard
     @user = User.find(params[:id])
-    # @booking = Booking.find(params[:id])
+    @plants = @user.plants
     authorize @user
   end
 
@@ -16,7 +16,7 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
     end
 
-  def plant_params
-    params.require(:plant).permit(:name, :instruction, :price_per_day, :category, :address, :plant_id)
+  def user_params
+    params.require(:user).permit(:name, :plant_id)
   end
 end
