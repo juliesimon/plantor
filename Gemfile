@@ -9,9 +9,7 @@ gem 'rails', '5.1.4'
 gem 'redis'
 gem 'devise'
 gem "cloudinary"
-gem "pundit"
-
-
+gem 'carrierwave', '~> 1.2'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
@@ -20,6 +18,7 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+gem "pundit"
 
 group :development, :test do
   gem 'pry-byebug'
