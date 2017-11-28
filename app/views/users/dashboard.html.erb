@@ -32,7 +32,9 @@
             <% @plants.each do |plant| %>
               <% plant.bookings.each do |booking| %>
                 <% if booking.status == "accepted"%>
-                  <li><%= plant.name %></li>
+                    <% if (booking.starts_at < Time.now) && (Time.now < booking.ends_at) %>
+                      <li><%= plant.name %></li>
+                    <% end %>
                 <% end %>
               <% end %>
             <% end %>

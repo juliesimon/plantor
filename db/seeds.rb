@@ -33,7 +33,7 @@ plant_two.save!
 plant_three.save!
 plant_four.save!
 
-booking_one = Booking.new(status: "pending")
+booking_one = Booking.new(starts_at: DateTime.parse("09/01/2017 17:00"), ends_at: DateTime.parse("09/12/2017 19:00"), status: "pending")
 
 booking_one.user = julie
 booking_one.plant = plant_four

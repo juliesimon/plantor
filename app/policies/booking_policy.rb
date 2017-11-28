@@ -20,6 +20,6 @@ class BookingPolicy < ApplicationPolicy
   private
 
   def is_user_the_owner_or_admin?
-    user == record.user || user.admin?
+    user == @user|| user.admin?
   end
 end
