@@ -5,17 +5,21 @@ class BookingPolicy < ApplicationPolicy
     end
   end
 
-  def create?
-    return true
+  def accept?
+    is_user_the_owner_or_admin?
   end
 
-  def update?
+  def decline?
     is_user_the_owner_or_admin?
+  end
+
+  def create?
+    return true
   end
 
   private
 
   def is_user_the_owner_or_admin?
-    user == record.user || user.admin?
+    user == @user|| user.admin?
   end
 end

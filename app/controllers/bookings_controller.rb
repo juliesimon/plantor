@@ -16,8 +16,26 @@ class BookingsController < ApplicationController
     end
   end
 
-  def update
+  def accept
+    @booking = Booking.find(params[:booking_id])
+    @booking.status = "accepted"
     authorize @booking
+    if @booking.save
+      redirect_to dashboard_user_path(current_user)
+    else
+      render 'plants/show'
+    end
+  end
+
+  def decline
+    @booking = Booking.find(params[:booking_id])
+    @booking.status = "declined"
+    authorize @booking
+    if @booking.save
+      redirect_to dashboard_user_path(@booking.user)
+    else
+      render 'plants/show'
+    end
   end
 
   private
