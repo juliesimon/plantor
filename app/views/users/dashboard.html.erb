@@ -1,23 +1,44 @@
 
 <%= render "shared/navbar" %>
+
 <div class="dashboard-container">
-  <div class="profile text-center">
-    <div class="main">
+  <div class="profile-dash text-center">
+    <div class="main-dash">
       <div class="main-content">
-        <h2>My Dashboard</h2>
+        <h3>My Dashboard</h2>
         <%= image_tag "https://kitt.lewagon.com/placeholder/users/Alexialet", class: "img-circle" %>
         <p><%= @user.email %></p>
         <%= link_to 'See all my plants', user_path(current_user) %>
+        <p> <%= Time.now.strftime("%b %d, %Y") %></p>
       </div>
     </div>
     <div class="current">
       <div class="stat-content">
-        <h3>Pending Plants</h3>
+        <h3>
+          Pending Plants
+          <% count = 0 %>
+          <% @plants.each do |plant| %>
+            <% plant.bookings.each do |booking| %>
+              <% count += 1 if booking.status == "pending" %>
+            <% end %>
+          <% end %>
+          (<%= count %>)
+        </h3>
         <ul>
           <% @plants.each do |plant| %>
             <% plant.bookings.each do |booking| %>
               <% if booking.status == "pending"%>
-                <li><%= plant.name %> <%= link_to "Accept", accept_booking_path(booking), method: :patch %> <%= link_to "Decline", decline_booking_path(booking), method: :patch %></li>
+                <li>
+                  <%= booking.user.email %>
+                  wants to rent your
+                  <strong><%= plant.name %></strong>
+                  from
+                  <strong><%= booking.starts_at.strftime("%b %d, %Y") %></strong>
+                  to
+                  <strong><%= booking.ends_at.strftime("%b %d, %Y") %></strong>.
+                  <%= link_to '<i class="fa fa-check" aria-hidden="true"></i>'.html_safe, accept_booking_path(booking), method: :patch, id: "validate-green"%>
+                  <%= link_to '<i class="fa fa-times" aria-hidden="true"></i>'.html_safe, decline_booking_path(booking), method: :patch, id: "delete-red" %>
+                </li>
               <% end %>
             <% end %>
           <% end %>
@@ -32,7 +53,7 @@
             <% plant.bookings.each do |booking| %>
               <% if booking.status == "accepted"%>
                   <% if (booking.starts_at < Time.now) && (Time.now < booking.ends_at) %>
-                    <li><%= plant.name %></li>
+                    <li> <strong><%= plant.name %></strong> is booked from <%= booking.starts_at.strftime("%b %d, %Y") %> to <%= booking.ends_at.strftime("%b %d, %Y") %></li>
                   <% end %>
               <% end %>
             <% end %>
