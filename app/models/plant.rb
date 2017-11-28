@@ -1,5 +1,5 @@
 class Plant < ApplicationRecord
-  CATEGORIES = ["Plante Verte", "Plante Fleurie", "Plante en Pot Décoratif", "Grande Plante d'Intérieur", "Bonsaï", "Cactus", "Plante Artificielle", "Arbuste d'Extérieur", "Bambous", "Fruitier", "Conifère"].sort
+  CATEGORIES = ["Green Plant", "Blooming Plant", "Decorative Plant", "Indoor Plant (large)", "Bonsai", "Cactus", "Artificial Plant", "Shrub", "Bamboo", "Fruit Tree", "Conifer"].sort
   belongs_to :user
   has_many :bookings
   mount_uploader :photo, PhotoUploader
