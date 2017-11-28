@@ -6,16 +6,17 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
 User.destroy_all
 
 alexia = User.create(email: "alexia@gmail.com", password: "azertyuiop")
 guillaume = User.create(email: "guillaume@gmail.com", password: "azertyuiop")
 julie = User.create(email: "julie@gmail.com", password: "azertyuiop")
 
-plant_one = Plant.new(name:'1', price_per_day: 50, address: "Paris", category: "Cactus")
-plant_two = Plant.new(name:'2', price_per_day: 50, address: "Paris", category: "Cactus")
-plant_three = Plant.new(name:'3', price_per_day: 50, address: "Paris", category: "Cactus")
-plant_four = Plant.new(name:'4', price_per_day: 50, address: "Paris", category: "Cactus")
+plant_one = Plant.new(name:'Cactus', price_per_day: 50, address: "Paris", category: "Cactus")
+plant_two = Plant.new(name:'Sapin', price_per_day: 50, address: "Paris", category: "Cactus" )
+plant_three = Plant.new(name:'Bonsai', price_per_day: 50, address: "Paris", category: "Cactus" )
+plant_four = Plant.new(name:'Orchidée', price_per_day: 50, address: "Paris", category: "Cactus" )
 
 plant_one.remote_photo_url = "http://power.itp.ac.cn/~jmyang/funny/fun4.jpg"
 plant_two.remote_photo_url = "http://power.itp.ac.cn/~jmyang/funny/fun4.jpg"
@@ -32,6 +33,7 @@ plant_one.save!
 plant_two.save!
 plant_three.save!
 plant_four.save!
+
 
 booking_one = Booking.new(starts_at: DateTime.parse("09/01/2017 17:00"), ends_at: DateTime.parse("09/12/2017 19:00"), status: "pending")
 

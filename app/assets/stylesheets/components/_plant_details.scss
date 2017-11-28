@@ -1,0 +1,37 @@
+.banner-plant {
+  color: white;
+  text-align: center;
+  height: 40vh;
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.img-circle {
+  border-radius: 60%;
+  height: 60px;
+}
+
+
+#plant-description {
+  background: $light-gray;
+  padding: 35px 0;
+  padding-bottom: 10px;
+  font-size: 16px;
+  color: #000000;
+  border-top: black;
+}
+
+#plant-description li {
+  list-style: none !important;
+  padding-bottom: 5px;
+  font-family: 'Varela Round', sans-serif;
+}
+
+#plant-data {
+  font-weight: normal;
+  font-size: 14px;
+  color: #797373;
+}
+

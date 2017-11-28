@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   end
 
   root to: 'pages#home'
+  get 'about', to: 'pages#about'
   resources :plants, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
     resources :bookings, only: [:create]
   end
