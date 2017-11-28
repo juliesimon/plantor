@@ -9,6 +9,8 @@
         <%= image_tag "https://kitt.lewagon.com/placeholder/users/Alexialet", class: "img-circle" %>
         <p><%= @user.email %></p>
         <%= link_to 'See all my plants', user_path(current_user) %>
+        <%= link_to 'Complete your profile', user_path(current_user), class: "btn-green" %>
+        <%= link_to 'See all my plants', user_path(current_user), class: "btn-green" %>
         <p> <%= Time.now.strftime("%b %d, %Y") %></p>
       </div>
     </div>

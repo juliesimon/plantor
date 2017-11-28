@@ -37,6 +37,21 @@
   }
 }
 
+.main-content {
+  font-size: 14px;
+  padding: 40px;
+}
+
+.btn-green {
+  color: rgb(255, 255, 255);
+  background-color: #146d4f;
+  padding: 8px;
+  margin: 30px;
+  border-radius: 4px;
+  box-shadow: 0 5px 10px 0 rgba(0,0,0,.1);
+  display: inline-block;
+}
+
 /* Fonts and colors */
 .profile-dash h2 {
   font-size: 22px;
