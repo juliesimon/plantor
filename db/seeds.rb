@@ -13,6 +13,7 @@ alexia = User.create(email: "alexia@gmail.com", password: "azertyuiop")
 guillaume = User.create(email: "guillaume@gmail.com", password: "azertyuiop")
 julie = User.create(email: "julie@gmail.com", password: "azertyuiop")
 
+
 plant_one = Plant.new(name:'Cactus', price_per_day: 50, address: "Paris", category: "Cactus")
 plant_two = Plant.new(name:'Sapin', price_per_day: 50, address: "Paris", category: "Cactus" )
 plant_three = Plant.new(name:'Bonsai', price_per_day: 50, address: "Paris", category: "Cactus" )

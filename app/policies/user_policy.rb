@@ -5,6 +5,10 @@ class UserPolicy < ApplicationPolicy
     end
   end
 
+  def show?
+    is_user_the_owner_or_admin?
+  end
+
   def dashboard?
     is_user_the_owner_or_admin?
   end
@@ -15,5 +19,3 @@ class UserPolicy < ApplicationPolicy
     user == record || user.admin?
   end
 end
-
-# record = User.find(params[:id])
