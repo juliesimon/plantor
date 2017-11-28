@@ -1,0 +1,15 @@
+<div class="book-form">
+  <h4>Book this plant</h4>
+  <%= "Price per day of plant: #{@plant.price_per_day}€" %>
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1">
+      <%= simple_form_for [@plant, @booking] do |f| %>
+      <%= f.input :starts_at, as: :string, required: false, input_html: {class: "datepicker"} %>
+      <%= f.input :ends_at, as: :string, required: false, input_html: {class: "datepicker"} %>
+      <%= f.submit "Book this plant" %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+

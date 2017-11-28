@@ -1,16 +1,41 @@
-<h1><%= @plant.name %></h1>
+<div class="body">
+  <%= render "shared/navbar" %>
+  <div class="banner-plant" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%),url('<%= cl_image_path('cactus_jvafsx') %>');">
+  </div>
+  <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-5 col-sm-offset-1">
+          <div id="header-plant-details">
+            <%= image_tag "https://kitt.lewagon.com/placeholder/users/Alexialet", class: "img-circle" %>
+            <h3><%= @plant.name %></h3>
+            <h2>About this plant</h2>
+            <p>Please don't forget to water everyday.</p>
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-5">
+          <%= render "shared/form" %>
+        </div>
+      </div>
+    <div class="row">
+      <div id="plant-description">
+        <div class="container">
+          Category + Adresse + Instructions
+        </div>
+      </div>
+    </div>
+  </div>
 
-<%= simple_form_for [@plant, @booking] do |f| %>
-  <%= "Price per day of plant: #{@plant.price_per_day}€" %>
-  <%= f.input :starts_at, as: :string, required: false, input_html: {class: "datepicker"} %>
-  <%= f.input :ends_at, as: :string, required: false, input_html: {class: "datepicker"} %>
-  <%= f.submit "Book this plant" %>
-<% end %>
+<div class="btn-medium"><%= link_to "Back to list", plants_path %></div>
 
-<h3> Bookings :</h3>
-<ul><% @plant.bookings.each do |booking| %>
-    <li>
-      <%= "Booked by #{booking.user.email} from #{booking.starts_at.strftime("%A, %b %d")} to #{booking.ends_at.strftime("%A, %b %d")}"  %>
-    </li>
-  <% end %>
-</ul>
+    <h3> Past bookings :</h3>
+    <ul><% @plant.bookings.each do |booking| %>
+        <li>
+          <%= "Booked by #{booking.user.email} from #{booking.starts_at.strftime("%A, %b %d")} to #{booking.ends_at.strftime("%A, %b %d")}"  %>
+        </li>
+      <% end %>
+    </ul>
+</div>
+
+
+
+

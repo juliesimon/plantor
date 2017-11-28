@@ -1,0 +1,56 @@
+.banner-plant {
+  color: white;
+  text-align: center;
+  height: 50vh;
+  background-size: cover !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-plant {
+  display: flex;
+  align-items: center;
+  padding: 30px;
+  padding-left: 0;
+  color: black;
+  background: white;
+}
+
+.header-plant-details {
+  margin-left: 15px;
+}
+
+.img-circle {
+  border-radius: 50%;
+  height: 80px;
+}
+
+.header-plant p {
+  font-weight: normal;
+  font-size: 14px;
+  color: black;
+}
+
+.header-plant h2 {
+  font-weight: normal;
+  font-size: 15px;
+  color: black;
+  font-weight: bold;
+  margin-top: 4px;
+}
+
+#plant-description {
+    background: $light-gray;
+    padding: 50px 0;
+    padding-bottom: 10px;
+    font-size: 16px;
+    color: #000000;
+    border-top: black;
+}
+
+#plant-data {
+  font-weight: normal;
+  font-size: 14px;
+  color: #797373;
+}
