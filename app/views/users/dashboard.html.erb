@@ -1,16 +1,33 @@
 
 <%= render "shared/navbar" %>
+<div class="dashboard-container">
 
 <div class="dashboard-container">
-  <div class="row">
-    <div class="col-xs-6">
-      <h1>WELCOME TO YOUR DASHBOARD </h1>
-      <p><%= @user.email %></p>
-      <p>To do : type form to add avatar and name</p>
+      <div class="profile text-center">
+        <div class="main">
+          <div class="main-content">
+            <img src="images/seb.jpeg" alt="" width="150" class="img-circle">
+            <h2>User's name</h2>
+            <p><%= @user.email %></p>
+             <%= link_to 'See all my plants', user_path(current_user) %>
+          </div>
+        </div>
+        <div class="current">
+          <div class="stat-content">
+            <h3>Pending Plants</h3>
+            <p>repositories</p>
+          </div>
+          </div>
+        <div class="past">
+          <div class="description-content">
+            <h3>Current Plants</h3>
+            <p class="text-justify">
+
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="col-xs-6">
-      <h1>My history</h1>
-      <p>Plants rented</p>
-      <p>Pending requests</p>
-    </div>
-</div>
+
+
+
