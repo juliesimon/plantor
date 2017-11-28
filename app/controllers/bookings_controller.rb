@@ -12,6 +12,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to plant_path(@plant)
     else
+      set_disabled_dates # method defined in ApplicationController
       render 'plants/show'
     end
   end
