@@ -37,5 +37,5 @@
 </div>
 
 
-
-
+<%= link_to "Edit", edit_plant_path(@plant) %>
+<%= link_to "Destroy", plant_path(@plant), method: :delete, data: { confirm: "Are you sure?" } %>
