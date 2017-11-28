@@ -2,14 +2,13 @@ class UsersController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show]
   before_action :set_user, only: [:show, :dashboard]
   def show
-
+    authorize @user
   end
 
   def dashboard
-
     @user = User.find(params[:id])
-    @plant = Plant.find(params[:id])
     # @booking = Booking.find(params[:id])
+    authorize @user
   end
 
   private

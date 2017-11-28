@@ -9,10 +9,12 @@ User.destroy_all
 user_one = User.create(email: "alexia@gmail.com", password: "azertyuiop")
 user_two = User.create(email: "guillaume@gmail.com", password: "azertyuiop")
 user_three = User.create(email: "julie@gmail.com", password: "azertyuiop")
+
 plant_one = Plant.new(name:'Cactus', price_per_day: 50, address: "Paris", category: "Cactus")
 plant_two = Plant.new(name:'Sapin', price_per_day: 50, address: "Paris", category: "Cactus" )
 plant_three = Plant.new(name:'Bonsai', price_per_day: 50, address: "Paris", category: "Cactus" )
 plant_four = Plant.new(name:'Orchidée', price_per_day: 50, address: "Paris", category: "Cactus" )
+
 plant_one.remote_photo_url = "http://power.itp.ac.cn/~jmyang/funny/fun4.jpg"
 plant_two.remote_photo_url = "http://power.itp.ac.cn/~jmyang/funny/fun4.jpg"
 plant_three.remote_photo_url = "http://power.itp.ac.cn/~jmyang/funny/fun4.jpg"
