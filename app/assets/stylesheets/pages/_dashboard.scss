@@ -17,16 +17,39 @@
 .main-dash, .past, .current {
   background: white;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
-  padding: 50px;
+  padding: 10px;
   margin: 10px;
   display: flex;
-  align-items: center;
   justify-content: space-around;
+  ul {
+    padding-left: 0;
+  }
+  h3 {
+    color: $green;
+  }
+  li {
+    list-style: none;
+  }
 }
 @media (max-width: 940px) {
   .profile-dash {
     display: block;
   }
+}
+
+.main-content {
+  font-size: 14px;
+  padding: 40px;
+}
+
+.btn-green {
+  color: rgb(255, 255, 255);
+  background-color: #146d4f;
+  padding: 8px;
+  margin: 30px;
+  border-radius: 4px;
+  box-shadow: 0 5px 10px 0 rgba(0,0,0,.1);
+  display: inline-block;
 }
 
 /* Fonts and colors */
@@ -50,5 +73,19 @@
 .profile-dash .btn:hover {
   background: #37B686;
   opacity: 0.7;
+}
+#validate-green {
+  color: $green;
+  opacity: 0.7;
+  &:hover {
+    opacity: 1;
+  }
+}
+#delete-red {
+  color: $red;
+  opacity: 0.7;
+  &:hover {
+    opacity: 1;
+  }
 }
 
