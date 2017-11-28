@@ -8,10 +8,18 @@
   justify-content: center;
 }
 .banner h1 {
-  font-size: 50px;
-  font-weight: bold;
+  font-size: 46px;
   text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+  color: white;
+  opacity: 0.8;
 }
+.banner h2 {
+  font-size: 30px;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+  color: white;
+  opacity: 0.7;
+}
+
 .banner p {
   font-size: 25px;
   font-weight: lighter;

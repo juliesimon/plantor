@@ -14,6 +14,14 @@ class ApplicationController < ActionController::Base
     redirect_to(root_path)
   end
 
+  def set_disabled_dates
+    @disabled = []
+    @plant.bookings.each do |booking|
+      start = booking.starts_at - 1.day
+      @disabled << { from: start, to: booking.ends_at}
+    end
+  end
+
   private
 
   def skip_pundit?

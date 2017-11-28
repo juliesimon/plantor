@@ -11,11 +11,12 @@
 
 // Your CSS partials
 @import "layouts/index";
+@import "layouts/map";
 @import "components/index";
-@import "pages/index";
 @import "components/banner";
 @import "components/button";
 @import "components/footer";
 @import "components/card";
-@import "layouts/map";
 @import "components/plant_details";
+@import "pages/index";
+@import "pages/about";
