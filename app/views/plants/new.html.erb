@@ -6,5 +6,7 @@
   <%= f.input :price_per_day, label: 'Price per day', placeholder: '2' %>
   <%= f.input :address, label: 'Location of the plant', placeholder: '23 rue du Terreau, 93260 Les Lilas'  %>
   <%= f.input :category, collection: Plant::CATEGORIES, prompt: "Select a category" %>
+  <%= f.input :photo, label: 'Add a Photo' %>
+  <%= f.input :photo_cache, as: :hidden %>
   <%= f.submit "Add a plant", class: "btn btn-secondary" %>
 <% end %>

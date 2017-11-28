@@ -29,6 +29,6 @@ skip_before_action :authenticate_user!, only: [:index, :show]
   private
 
   def plant_params
-    params.require(:plant).permit(:name, :instruction, :price_per_day, :category, :address)
+    params.require(:plant).permit(:name, :instruction, :price_per_day, :category, :address, :photo)
   end
 end
