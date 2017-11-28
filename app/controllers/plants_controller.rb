@@ -8,11 +8,7 @@ skip_before_action :authenticate_user!, only: [:index, :show]
   def show
     @booking = Booking.new
     authorize @plant
-    @disabled = []
-    @plant.bookings.each do |booking|
-      start = booking.starts_at - 1.day
-      @disabled << { from: start, to: booking.ends_at}
-    end
+    set_disabled_dates # method defined in ApplicationController
   end
 
   def new
