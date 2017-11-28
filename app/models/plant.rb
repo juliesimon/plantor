@@ -6,4 +6,5 @@ class Plant < ApplicationRecord
   validates :price_per_day, presence: true
   validates :address, presence: true
   validates :category, inclusion: { in: CATEGORIES }
+  mount_uploader :photo, PhotoUploader
 end
