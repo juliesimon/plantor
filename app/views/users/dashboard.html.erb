@@ -2,28 +2,79 @@
   <div class="profile-dash text-center">
     <div class="main-dash">
       <div class="main-content">
-        <h3>My Dashboard</h2>
-        <%= image_tag "https://kitt.lewagon.com/placeholder/users/Alexialet", class: "img-circle" %>
-        <p><%= @user.email %></p>
-        <%= link_to 'See all my plants', user_path(current_user) %>
-        <%= link_to 'Complete your profile', user_path(current_user), class: "btn-green" %>
-        <%= link_to 'See all my plants', user_path(current_user), class: "btn-green" %>
+        <h3>Welcome </h3>
+        <% if @user.photo.url.present? %>
+          <%= cl_image_tag(@user.photo.url(:bright_face)) %>
+        <% else %>
+          <%= image_tag "https://cdn.dribbble.com/users/162725/screenshots/1166246/avatares-barambambu.gif", class: "img-circle" %>
+        <% end %>
+<!--         <p>@user.firstname</p>
+         <p>@user.lasttname</p> -->
+        <% if @user.username.present? %>
+          <p><%= @user.username %></p>
+        <% else %>
+          <p> <%= link_to 'Complete your profile', user_path(current_user), class: "btn-secondary form-button" %></p>
+        <% end %>
+        <button type="button" class="btn-secondary form-button" data-toggle="modal" data-target="#editFormModal"> Edit Profile </button>
+        <!-- Modal -->
+        <div class="modal fade" id="editFormModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Edit user</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <%= render 'form-user' %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <div class= "container-form">  <%= render 'form-user' %></div> -->
+
+        <p>  <%= link_to 'Check my plants', user_path(current_user), class: "btn-secondary form-button" %></p>
         <p> <%= Time.now.strftime("%b %d, %Y") %></p>
       </div>
     </div>
     <div class="current">
-      <div class="stat-content">
+      <div class="pending-bookings">
         <h3>
           Pending Plants
           <% count = 0 %>
-          <% @plants.each do |plant| %>
-            <% plant.bookings.each do |booking| %>
-              <% count += 1 if booking.status == "pending" %>
-            <% end %>
+          <% @bookings.each do |booking| %>
+            <% count += 1 if booking.status == "pending" %>
           <% end %>
           (<%= count %>)
         </h3>
         <ul>
+          <li class="booking">
+            <div class="pending-booking-user-photo"></div>
+            <div class="pending-booking-plant-photo"></div>
+            <div class="pending-booking-plant"><strong>Plant</strong></div>
+            <div class="pending-booking-user"><strong>Renter</strong></div> <!-- ADD NAME INSTEAD -->
+            <div class="pending-booking-dates">
+              <div class="pending-booking-start"><strong>From</strong></div>
+              <div class="pending-booking-end"><strong>To</strong></div>
+            </div>
+          </li>
+          <% @bookings.each do |booking| %>
+            <% if booking.status == "pending" %>
+              <li class="booking">
+                <div class="pending-booking-plant-photo"><%= cl_image_tag booking.plant.photo, crop: :fill %></div>
+                <div class="pending-booking-user-photo"><%= image_tag('https://cours-informatique-gratuit.fr/wp-content/uploads/2014/05/compte-utilisateur-1.png') %></div> <!-- ADD USER PHOTO -->
+                <div class="pending-booking-plant"><%= booking.plant.name %></div>
+                <div class="pending-booking-user"><%= booking.plant.user.email %></div> <!-- ADD NAME INSTEAD -->
+                <div class="pending-booking-dates">
+                  <div class="pending-booking-start"><%= booking.starts_at.strftime("%b %d, %Y") %></div>
+                  <div class="pending-booking-end"><%= booking.ends_at.strftime("%b %d, %Y") %></div>
+                </div>
+              </li>
+            <% end %>
+          <% end %>
+        </ul>
+        <!-- <ul>
           <% @plants.each do |plant| %>
             <% plant.bookings.each do |booking| %>
               <% if booking.status == "pending"%>
@@ -32,7 +83,7 @@
                   wants to rent your
                   <strong><%= plant.name %></strong>
                   from
-                  <strong><%= booking.starts_at.strftime("%b %d, %Y") %></strong>
+                  <strong><%= booking.starts_atif booking.status == "pending" %> %></strong>
                   to
                   <strong><%= booking.ends_at.strftime("%b %d, %Y") %></strong>.
                   <%= link_to '<i class="fa fa-check" aria-hidden="true"></i>'.html_safe, accept_booking_path(booking), method: :patch, id: "validate-green"%>
@@ -41,13 +92,46 @@
               <% end %>
             <% end %>
           <% end %>
-        </ul>
+        </ul> -->
       </div>
     </div>
     <div class="past">
-      <div class="description-content">
-        <h3>Current Plants</h3>
+      <div class="pending-bookings">
+        <h3>
+          Current Plants
+          <% count = 0 %>
+          <% @bookings.each do |booking| %>
+            <% count += 1 if booking.status == "accepted" && (booking.starts_at < Time.now) && (Time.now < booking.ends_at) %>
+          <% end %>
+          (<%= count %>)
+        </h3>
         <ul>
+          <li class="booking">
+            <div class="pending-booking-user-photo"></div>
+            <div class="pending-booking-plant-photo"></div>
+            <div class="pending-booking-plant"><strong>Plant</strong></div>
+            <div class="pending-booking-user"><strong>Renter</strong></div> <!-- ADD NAME INSTEAD -->
+            <div class="pending-booking-dates">
+              <div class="pending-booking-start"><strong>From</strong></div>
+              <div class="pending-booking-end"><strong>To</strong></div>
+            </div>
+          </li>
+          <% @bookings.each do |booking| %>
+            <% if booking.status == "accepted" && (booking.starts_at < Time.now) && (Time.now < booking.ends_at) %>
+              <li class="booking">
+                <div class="pending-booking-plant-photo"><%= cl_image_tag booking.plant.photo, crop: :fill %></div>
+                <div class="pending-booking-user-photo"><%= image_tag('https://cours-informatique-gratuit.fr/wp-content/uploads/2014/05/compte-utilisateur-1.png') %></div> <!-- ADD USER PHOTO -->
+                <div class="pending-booking-plant"><%= booking.plant.name %></div>
+                <div class="pending-booking-user"><%= booking.plant.user.email %></div> <!-- ADD NAME INSTEAD -->
+                <div class="pending-booking-dates">
+                  <div class="pending-booking-start"><%= booking.starts_at.strftime("%b %d, %Y") %></div>
+                  <div class="pending-booking-end"><%= booking.ends_at.strftime("%b %d, %Y") %></div>
+                </div>
+              </li>
+            <% end %>
+          <% end %>
+        </ul>
+        <!-- <ul>
           <% @plants.each do |plant| %>
             <% plant.bookings.each do |booking| %>
               <% if booking.status == "accepted"%>
@@ -57,7 +141,7 @@
               <% end %>
             <% end %>
           <% end %>
-        </ul>
+        </ul> -->
       </div>
     </div>
   </div>

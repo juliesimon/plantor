@@ -5,6 +5,17 @@
   height: calc(100vh - 70px);
   padding: 30px;
 }
+.form-button {
+
+margin-bottom: 20px;
+border: solid #146d4f;
+font-weight: lighter;
+width : 150px !important;
+}
+
+.form-button:hover {
+box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
 
 .profile-dash .main-dash {
   grid-row: 1 / span 2;
@@ -39,17 +50,8 @@
 
 .main-content {
   font-size: 14px;
-  padding: 40px;
-}
-
-.btn-green {
-  color: rgb(255, 255, 255);
-  background-color: #146d4f;
-  padding: 8px;
-  margin: 30px;
-  border-radius: 4px;
-  box-shadow: 0 5px 10px 0 rgba(0,0,0,.1);
-  display: inline-block;
+  padding-bottom: 30px;
+  margin: 5% auto;
 }
 
 /* Fonts and colors */
@@ -61,8 +63,18 @@
   margin-bottom: 15px;
 }
 .profile-dash p {
+  padding-top: 20px;
+  padding-bottom: 20px;
   color: rgba(0,0,0,0.6);
 }
+
+.container-form {
+  width: 80%;
+  margin: 20px auto;
+  color: rgba(0,0,0,0.6);
+  font-size: 14px;
+  font-weight: lighter;
+
 .profile-dash .btn {
   border-radius: 0;
   border: none;
@@ -87,4 +99,42 @@
   &:hover {
     opacity: 1;
   }
+
+}
+.booking {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 15px;
+  margin-bottom: 5px;
+}
+.pending-bookings {
+  width: 98%;
+}
+.pending-booking-dates {
+  flex: 0 0 25%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .pending-booking-start {
+    flex: 0 0 50%;
+  }
+  .pending-booking-end {
+    flex: 0 0 50%;
+  }
+}
+.pending-booking-user-photo, .pending-booking-plant-photo {
+  flex: 0 0 5%;
+  img {
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    border: 1px solid $green;
+  }
+}
+.pending-booking-user {
+  flex: 0 0 32.5%;
+}
+.pending-booking-plant {
+  flex: 0 0 32.5%;
 }
