@@ -6,36 +6,32 @@
         <% if @user.photo.url.present? %>
           <%= cl_image_tag(@user.photo.url(:bright_face)) %>
         <% else %>
-          <%= image_tag "https://cdn.dribbble.com/users/162725/screenshots/1166246/avatares-barambambu.gif", class: "img-circle" %>
+          <%= image_tag "https://cdn.dribbble.com/users/162725/screenshots/1166246/avatares-barambambu.gif", class: "img-circle-dashboard" %>
         <% end %>
-<!--         <p>@user.firstname</p>
-         <p>@user.lasttname</p> -->
-        <% if @user.username.present? %>
-          <p><%= @user.username %></p>
-        <% else %>
-          <p> <%= link_to 'Complete your profile', user_path(current_user), class: "btn-secondary form-button" %></p>
-        <% end %>
-        <button type="button" class="btn-secondary form-button" data-toggle="modal" data-target="#editFormModal"> Edit Profile </button>
-        <!-- Modal -->
-        <div class="modal fade" id="editFormModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Edit user</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <%= render 'form-user' %>
+        <br>
+        <div class="profile-btns">
+          <button type="button" class="btn-secondary form-button" data-toggle="modal" data-target="#editFormModal"> Edit Profile </button>
+          <!-- Modal -->
+          <div class="modal fade" id="editFormModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Edit user</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <%= render 'form-user' %>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <!-- <div class= "container-form">  <%= render 'form-user' %></div> -->
+          <!-- <div class= "container-form">  <%= render 'form-user' %></div> -->
 
-        <p>  <%= link_to 'Check my plants', user_path(current_user), class: "btn-secondary form-button" %></p>
-        <p> <%= Time.now.strftime("%b %d, %Y") %></p>
+          <p>  <%= link_to 'Check My Plants', user_path(current_user), class: "btn-secondary form-button" %></p>
+          <p> <%= Time.now.strftime("%b %d, %Y") %></p>
+        </div>
       </div>
     </div>
     <div class="current">
