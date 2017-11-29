@@ -1,20 +1,25 @@
-  <div class="profile-dash text-center">
-    <div class="main-dash">
-      <div class="main-content">
-        <%= image_tag "https://kitt.lewagon.com/placeholder/users/Alexialet", class: "img-circle" %>
+
+<div class="text-center">
+  <div class="main-dash">
+
+    <div class="col-xs-6 main-content">
+      <% if @user.photo.url.present? %>
+          <%= cl_image_tag(@user.photo.url(:bright_face)) %>
+        <% else %>
+          <%= image_tag "https://cdn.dribbble.com/users/162725/screenshots/1166246/avatares-barambambu.gif", class: "img-circle" %>
+        <% end %>
         <h2>User's name</h2>
         <p><%= @user.email %></p>
-      </div>
     </div>
-      <div class="user-plant">
-        <h3>All my plants</h3>
+  </div>
+    <div class="col-xs-6 user-plant">
+      <h3>All my plants</h3>
           <% @user.plants.each do |plant| %>
           <div class="col-xs-6 col-sm-4">
-          <p><%= plant.name %></p>
-          <p><%= plant.photo %></p>
+            <p><%= plant.name %></p>
+            <p><%= plant.photo %></p>
           <% end %>
         </div>
-      </div>
     </div>
   </div>
 </div>

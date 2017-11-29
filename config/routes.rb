@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
 
-  resources :users, only: [:show] do
+  resources :users, only: [:show, :dashboard, :update] do
     member do
       get 'dashboard', to: "users#dashboard"
     end
