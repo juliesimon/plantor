@@ -78,7 +78,7 @@ plants_attributes = [
     address:      '19 boulevard Victor Hugo 92200 Neuilly sur Seine',
     category:     'Green Plant',
     remote_photo_url: 'http://cdn.shopify.com/s/files/1/1802/1289/articles/2_1024x1024.jpg?v=1496745397',
-    user: mathilde
+    user: guillaume
   }
 ]
 
