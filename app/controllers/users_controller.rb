@@ -1,14 +1,20 @@
 class UsersController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:show]
-  before_action :set_user, only: [:show, :dashboard]
+  skip_before_action :authenticate_user!, only: [:show, :update]
+  before_action :set_user, only: [:show, :dashboard, :update]
+
   def show
     authorize @user
   end
 
   def dashboard
-    @user = User.find(params[:id])
     @plants = @user.plants
     authorize @user
+  end
+
+  def update
+    @user.update(user_params)
+    authorize @user
+    redirect_to dashboard_user_path(@user)
   end
 
   private
@@ -17,6 +23,6 @@ class UsersController < ApplicationController
     end
 
   def user_params
-    params.require(:user).permit(:name, :plant_id)
+    params.require(:user).permit(:name, :plant_id, :username, :firstname, :lastname, :photo, :photo_cache)
   end
 end

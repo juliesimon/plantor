@@ -13,6 +13,14 @@ class UserPolicy < ApplicationPolicy
     is_user_the_owner_or_admin?
   end
 
+  def update?
+     is_user_the_owner_or_admin?
+  end
+
+  def edit?
+    update?
+  end
+
   private
 
   def is_user_the_owner_or_admin?

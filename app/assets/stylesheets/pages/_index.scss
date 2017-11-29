@@ -1,19 +1,19 @@
 // Import page-specific CSS files here.
 @import "home";
 @import "signup";
-@import "signin";
 @import "dashboard";
 @import "usershow";
 
 body {
   margin: 0;
-  font-family: 'Varela Round', sans-serif;
+  font-family: 'Open-sans', sans-serif;
   font-size: 18px;
   background: #F4F4F4;
 }
 p {
   font-weight: lighter;
 }
+
 
 .padded {
   padding: 30px 0;
