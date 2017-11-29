@@ -1,8 +1,10 @@
-  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.4) 50%), url('<%= cl_image_path plant.photo, crop: :fill %>')">
-    <%= link_to plant.name, plant_path(plant), class: "card-category"%>
-  <div class="card-description">
+<div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.4) 50%), url('<%= cl_image_path plant.photo, crop: :fill %>')">
+  <div class="card-category">
     <%= plant.category %>
-    <%= plant.price_per_day %> €/jour <br>
   </div>
+  <div class="card-description">
+      <h3><%= plant.name %></h3>
+      <p><%= "#{plant.price_per_day} €/jour" %></p>
+  </div>
+  <%= link_to "", plant_path(plant), class: "card-link" %>
 </div>
-
