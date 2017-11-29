@@ -24,7 +24,7 @@ plants_attributes = [
     address:      '19 boulevard Victor Hugo 92200 Neuilly sur Seine',
     category:     'cactus',
     remote_photo_url: 'https://unsplash.com/photos/fbAnIjhrOL4',
-    user: alexia
+    user: User.first
   },
   {
     name:         'Majestuous Christmas Tree',
@@ -33,7 +33,7 @@ plants_attributes = [
     address:      '19 boulevard Victor Hugo 92200 Neuilly sur Seine',
     category:     'conifer',
     remote_photo_url: 'https://www.google.fr/url?sa=i&rct=j&q=&esrc=s&source=imgres&cd=&cad=rja&uact=8&ved=0ahUKEwilo6KDu-PXAhWBmbQKHYb7DboQjRwIBw&url=https%3A%2F%2Fwww.balsamhill.com%2Fc%2Funder-6-ft-artificial-christmas-trees&psig=AOvVaw1Kvhb0Nh3-By1DHWeuTIQV&ust=1512033811033915',
-    user: alexia
+    user: User.first
   },
   {
     name:         'Amazing Monstera Deliciosa',
