@@ -35,3 +35,17 @@
   color: #797373;
 }
 
+#user-description {
+  background: $light-gray;
+  padding: 35px 0;
+  padding-bottom: 10px;
+  font-size: 16px;
+  color: #000000;
+  border-top: black;
+}
+
+#user-description li {
+  list-style: none !important;
+  padding-bottom: 5px;
+  font-family: 'Varela Round', sans-serif;
+}

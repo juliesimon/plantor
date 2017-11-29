@@ -19,6 +19,7 @@ gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
 gem "pundit"
+gem "geocoder"
 
 group :development, :test do
   gem 'pry-byebug'

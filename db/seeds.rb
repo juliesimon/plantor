@@ -14,10 +14,10 @@ guillaume = User.create(email: "guillaume@gmail.com", password: "azertyuiop")
 julie = User.create(email: "julie@gmail.com", password: "azertyuiop")
 
 
-plant_one = Plant.new(name:'Cactus', price_per_day: 50, address: "Paris", category: "Cactus")
-plant_two = Plant.new(name:'Sapin', price_per_day: 50, address: "Paris", category: "Cactus" )
-plant_three = Plant.new(name:'Bonsai', price_per_day: 50, address: "Paris", category: "Cactus" )
-plant_four = Plant.new(name:'Orchidée', price_per_day: 50, address: "Paris", category: "Cactus" )
+plant_one = Plant.new(name:'Cactus', price_per_day: 50, address: "7 rue de Messine, 75008, Paris", category: "Cactus")
+plant_two = Plant.new(name:'Sapin', price_per_day: 50, address: "16 villa Gaudelet, 75011, Paris", category: "Cactus" )
+plant_three = Plant.new(name:'Bonsai', price_per_day: 50, address: "19 boulevard Victor Hugo, 92200, Neuilly sur seine", category: "Cactus" )
+plant_four = Plant.new(name:'Orchidée', price_per_day: 50, address: "120-122 rue Réaumur, 75002, Paris", category: "Cactus" )
 
 plant_one.remote_photo_url = "http://www.darxxide.com/wp-content/uploads/uncategorized/Tall-Potted-Plants-Png-plants-png-plant-pots-stands-for-free-u-flowers-images-at-dzzyncom-vine-leaves-free-Tall-Potted-Plants.jpg"
 plant_two.remote_photo_url = "https://cdn2.bigcommerce.com/server5500/mvvy8/products/178/images/529/Idaho_pe_pvc_Premium__24256.1384147395.500.500.jpg?c=2"
