@@ -1,3 +1,13 @@
+.h2-index {
+  font-size: 18px;
+  font-weight: lighter !important;
+  font-family: 'Open-sans', sans-serif;
+  font-size: 18px;
+  color: $gray-font;
+  padding-left: 20px;
+  padding-bottom: 20px;
+}
+
 .card {
   height: 350px;
   // text-shadow: 0 1px 3px rgba(250,250,250,250.6);
@@ -19,7 +29,7 @@
   flex-grow: 1;
   height : 100vh;
   overflow-y: scroll;
-  padding: 20px;
+  margin: 20px;
   color: black;
 }
 
@@ -30,9 +40,17 @@
   font-size: 15px;
   margin-right: 10px;
   color: white;
+  padding-left: 10px;
+  padding-top: 15px;
   text-transform: uppercase;
   opacity: 0.8;
 }
+
+.card-category:hover {
+  text-shadow: 0 1px 3px rgba(250,250,250,250.6);
+  color: white;
+}
+
 .card-description {
   position: absolute;
   bottom: 10px;

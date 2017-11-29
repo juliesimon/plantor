@@ -1,7 +1,6 @@
 // Import page-specific CSS files here.
 @import "home";
 @import "signup";
-@import "signin";
 @import "dashboard";
 @import "usershow";
 @import "show";
@@ -24,4 +23,3 @@ p {
 .content {
   display: flex;
 }
-

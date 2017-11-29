@@ -4,6 +4,7 @@
     <h2><%= @plant.name %></h2>
   </div>
   </div>
+      <%= link_to "Back to list", plants_path, class: "btn btn-secondary" %>
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-6">
@@ -25,10 +26,15 @@
       <div class="col-xs-12 col-sm-6">
         <div id="user-description">
           <h4>About the user</h4>
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/Alexialet", class: "img-circle" %>
-          <%= @plant.user.email %>
-        </div>
+          <ul>
+            <li> Photo:</li>
+            <li><i class="fa fa-info" aria-hidden="true"></i>  Name:</li>
+            <li><i class="fa fa-envelope-o" aria-hidden="true"></i>  <%= link_to "Contact the owner", @plant.user.email %> </li>
+          </ul>
+         </div>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <div id="map" style="width: 100%; height: 300px;" data-markers="<%= @marker.to_json %>"></div>
       </div>
     </div>
   </div>
-      <%= link_to "Back to list", plants_path, class: "btn btn-secondary" %>

@@ -1,9 +1,9 @@
 import flatpickr from "flatpickr"
 import "flatpickr/dist/flatpickr.min.css" // Note this is important!
 
-const disabledDates = JSON.parse(document.getElementById('booking-form').dataset.dates);
-// debugger
+// const disabledDates = JSON.parse(document.getElementById('booking-form').dataset.dates);
+// // debugger
 
-flatpickr(".datepicker", {
-  disable: disabledDates
-})
+// flatpickr(".datepicker", {
+//   disable: disabledDates
+// })

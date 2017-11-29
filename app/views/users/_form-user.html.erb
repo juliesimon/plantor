@@ -1,11 +1,9 @@
-<%= simple_form_for @user do |f| %>
-  <%= f.input :username, label: 'Username', placeholder: 'Username'%>
-  <%= f.input :address, label: 'Address', placeholder: '23 rue du Terreau, 93260 Les Lilas'  %>
-  <%= f.input :photo, label: 'Add a Photo' %>
-  <%= f.input :photo_cache, as: :hidden %>
-  <% if @plant.id.present? %>
-    <%= f.submit "Edit your plant", class: "btn btn-secondary" %>
-  <% else %>
-    <%= f.submit "Add your plant", class: "btn btn-secondary" %>
+
+<div class= "container-form">
+  <%= simple_form_for @user do |f| %>
+    <%= f.input :username, label: 'Username', placeholder: 'Username'%>
+    <%= f.input :photo, placeholder: "Add a Photo", label: false %>
+    <%= f.input :photo_cache, as: :hidden %>
+    <%= f.submit "Add to profile", :class =>"form-button"  %>
   <% end %>
-<% end %>
+</div>
