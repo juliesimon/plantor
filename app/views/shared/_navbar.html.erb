@@ -3,28 +3,15 @@
   <a href="/" class="navbar-wagon-brand">
     <%= image_tag "logo.png", class: "logo" %>
   </a>
-
-  <!-- Right Navigation -->
-  <div class="navbar-wagon-right hidden-xs hidden-sm">
-
-    <% if user_signed_in? %>
-      <%= link_to 'My Dashboard', dashboard_user_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to 'Find', plants_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "navbar-wagon-item navbar-wagon-link" %>
-    <% else %>
-    <% end %>
-
-    <!-- Profile picture with dropdown list -->
     <div class="navbar-wagon-item">
       <div class="dropdown">
-        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-          <% if user_signed_in? %>
-          <li><%= link_to 'My Dashboard', dashboard_user_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %></li>
-          <li><%= link_to 'Find', plants_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
+        <div class="navbar-wagon-right hidden-xs hidden-sm">
+        <% if user_signed_in? %>
+          <%= link_to 'My Dashboard', dashboard_user_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %>
+          <%= link_to 'Find', plants_path, class: "navbar-wagon-item navbar-wagon-link" %>
           <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "navbar-wagon-item navbar-wagon-link" %>
-          <% else %>
-          <% end %>
-        </ul>
+        <% else %>
+        <% end %>
       </div>
     </div>
   </div>

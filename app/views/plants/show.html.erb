@@ -2,9 +2,9 @@
   <div class="banner-plant card" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%),url('<%= cl_image_path @plant.photo %>')">
     <div class="banner">
     <h2><%= @plant.name %></h2>
+    </div>
   </div>
-  </div>
-      <%= link_to "Back to list", plants_path, class: "btn btn-secondary" %>
+      <%= link_to "Back to list", plants_path, class: "btn btn-back" %>
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-6">
@@ -27,9 +27,9 @@
         <div id="user-description">
           <h4>About the user</h4>
           <ul>
-            <li> Photo:</li>
-            <li><i class="fa fa-info" aria-hidden="true"></i>  Name:</li>
-            <li><i class="fa fa-envelope-o" aria-hidden="true"></i>  <%= link_to "Contact the owner", @plant.user.email %> </li>
+            <li><%=cl_image_tag(@plant.user.photo.url(:bright_face)) %></li>
+            <li><i class="fa fa-user" aria-hidden="true"></i> Name: <p> <%= @plant.user.firstname %> <%= @plant.user.lastname %></p></li>
+            <li><i class="fa fa-envelope-o" aria-hidden="true"></i> Contact information: <p><%= mail_to "Contact the owner", @plant.user.email %></p></li>
           </ul>
          </div>
       </div>
