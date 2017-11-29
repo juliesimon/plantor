@@ -5,16 +5,24 @@
   height: calc(100vh - 70px);
   padding: 30px;
 }
-.form-button {
+.form-button{
+  margin-bottom: 20px;
+  border: solid #146d4f;
+  font-weight: lighter !important;
+  width : 150px !important;
+  margin-top: 30px !important;
+  button, a{
+    padding: 0 0 !important;
+    margin: 0 0 !important;
+  }
+}
 
-margin-bottom: 20px;
-border: solid #146d4f;
-font-weight: lighter;
-width : 150px !important;
+.profile-btns {
+  margin-top: 100px;
 }
 
 .form-button:hover {
-box-shadow: 0 0 10px rgba(0,0,0,0.4);
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
 }
 
 .profile-dash .main-dash {
@@ -75,6 +83,7 @@ box-shadow: 0 0 10px rgba(0,0,0,0.4);
   font-size: 14px;
   font-weight: lighter;
 }
+
 .profile-dash .btn {
   border-radius: 0;
   border: none;
@@ -99,7 +108,6 @@ box-shadow: 0 0 10px rgba(0,0,0,0.4);
   &:hover {
     opacity: 1;
   }
-
 }
 .booking {
   display: flex;
@@ -137,4 +145,7 @@ box-shadow: 0 0 10px rgba(0,0,0,0.4);
 }
 .pending-booking-plant {
   flex: 0 0 32.5%;
+}
+.img-circle-dashboard {
+  height: 100px;
 }
