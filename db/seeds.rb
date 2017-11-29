@@ -37,8 +37,23 @@ plant_four.save!
 
 
 booking_one = Booking.new(starts_at: DateTime.parse("09/01/2017 17:00"), ends_at: DateTime.parse("09/12/2017 19:00"), status: "pending")
+booking_two = Booking.new(starts_at: DateTime.parse("09/01/2016 17:00"), ends_at: DateTime.parse("09/12/2016 19:00"), status: "accepted")
+booking_three = Booking.new(starts_at: DateTime.parse("09/01/2017 17:00"), ends_at: DateTime.parse("09/12/2017 19:00"), status: "pending")
+booking_four = Booking.new(starts_at: DateTime.parse("09/01/2017 17:00"), ends_at: DateTime.parse("09/12/2017 19:00"), status: "accepted")
 
 booking_one.user = julie
 booking_one.plant = plant_four
 
+booking_two.user = julie
+booking_two.plant = plant_two
+
+booking_three.user = julie
+booking_three.plant = plant_one
+
+booking_four.user = julie
+booking_four.plant = plant_three
+
 booking_one.save!
+booking_two.save!
+booking_three.save!
+booking_four.save!

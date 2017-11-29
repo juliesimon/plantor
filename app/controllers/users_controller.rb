@@ -8,6 +8,7 @@ class UsersController < ApplicationController
   def dashboard
     @user = User.find(params[:id])
     @plants = @user.plants
+    @bookings = @user.bookings
     authorize @user
   end
 
