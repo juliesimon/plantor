@@ -4,15 +4,17 @@
 @import "signin";
 @import "dashboard";
 @import "usershow";
+@import "show";
 
 body {
   margin: 0;
-  font-family: 'Varela Round', sans-serif;
+  font-family: $body-font;
   font-size: 18px;
   background: #F4F4F4;
 }
+
 p {
-  font-weight: lighter;
+  font-weight: 300;
 }
 
 .padded {

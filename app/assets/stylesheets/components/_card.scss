@@ -1,21 +1,21 @@
 .card {
   height: 350px;
-  text-shadow: 0 1px 3px rgba(250,250,250,250.6);
+  // text-shadow: 0 1px 3px rgba(250,250,250,250.6);
   background-size: cover !important;
+  background-position: center;
   position: relative;
   border-radius: 5px;
   margin: 20px;
-  font-style: "Open-sans";
+  font-style: $body-font;
 }
 
 .card:hover {
   background-size: cover !important;
   color: green;
-  border-radius: 10px;
   opacity: 0.7;
 }
 
-.container {
+.card-container {
   flex-grow: 1;
   height : 100vh;
   overflow-y: scroll;
@@ -24,23 +24,28 @@
 }
 
 .card-category {
+  position: absolute;
   top: 10px;
   left: 10px;
   font-size: 15px;
+  margin-right: 10px;
   color: white;
   text-transform: uppercase;
+  opacity: 0.8;
 }
 .card-description {
   position: absolute;
   bottom: 10px;
   left: 10px;
   color: white;
+  margin-right: 10px;
 }
-.card-description h2 {
+
+.card-description h3 {
   font-size: 24px;
 }
 .card-description p {
-  font-size: 14px;
+  font-size: 20px;
   opacity: 0.7;
   font-weight: lighter;
 }
