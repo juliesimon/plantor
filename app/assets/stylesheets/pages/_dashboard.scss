@@ -74,6 +74,7 @@ box-shadow: 0 0 10px rgba(0,0,0,0.4);
   color: rgba(0,0,0,0.6);
   font-size: 14px;
   font-weight: lighter;
+}
 
 .profile-dash .btn {
   border-radius: 0;
@@ -99,8 +100,8 @@ box-shadow: 0 0 10px rgba(0,0,0,0.4);
   &:hover {
     opacity: 1;
   }
-
 }
+
 .booking {
   display: flex;
   align-items: center;
