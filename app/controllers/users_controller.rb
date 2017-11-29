@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   def dashboard
     @plants = @user.plants
+    @bookings = @user.bookings
     authorize @user
   end
 

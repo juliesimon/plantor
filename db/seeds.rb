@@ -10,10 +10,10 @@ Plant.destroy_all
 User.destroy_all
 
 puts 'Creating users...'
-alexia = User.create(email: "alexia@gmail.com", password: "azertyuiop")
-guillaume = User.create(email: "guillaume@gmail.com", password: "azertyuiop")
-julie = User.create(email: "julie@gmail.com", password: "azertyuiop")
-mathilde = User.create(email: "mathilde@gmail.com", password: "azertyuiop")
+alexia = User.create(firstname: "Alexia", lastname: "Le Tarnec", email: "alexia@gmail.com", password: "azertyuiop")
+guillaume = User.create(firstname: "Guillaume", lastname: "Hercot", email: "guillaume@gmail.com", password: "azertyuiop")
+julie = User.create(firstname: "Julie", lastname: "Simon", email: "julie@gmail.com", password: "azertyuiop")
+mathilde = User.create(firstname: "Mathilde", lastname: "Ganancia", email: "mathilde@gmail.com", password: "azertyuiop")
 
 puts 'Creating plants...'
 plants_attributes = [
@@ -85,4 +85,3 @@ plants_attributes = [
 Plant.create(plants_attributes)
 
 puts 'Finished creating plants!'
-
