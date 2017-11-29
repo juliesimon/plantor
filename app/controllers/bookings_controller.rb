@@ -10,7 +10,7 @@ class BookingsController < ApplicationController
     @booking.status = "pending"
     authorize @booking
     if @booking.save
-      redirect_to plant_path(@plant)
+      redirect_to dashboard_user_path(current_user)
     else
       set_disabled_dates # method defined in ApplicationController
       render 'plants/show'
