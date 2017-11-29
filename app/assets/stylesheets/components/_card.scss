@@ -1,11 +1,10 @@
-.h2-index {
-  font-size: 18px;
-  font-weight: lighter !important;
-  font-family: 'Open-sans', sans-serif;
-  font-size: 18px;
-  color: $gray-font;
-  padding-left: 20px;
-  padding-bottom: 20px;
+.card-container {
+  height : 100vh;
+  overflow-y: scroll;
+  margin: 20px;
+  color: black;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .card {
@@ -17,6 +16,7 @@
   border-radius: 5px;
   margin: 20px;
   font-style: $body-font;
+  min-width: 150px;
 }
 
 .card:hover {
@@ -25,18 +25,10 @@
   opacity: 0.7;
 }
 
-.card-container {
-  flex-grow: 1;
-  height : 100vh;
-  overflow-y: scroll;
-  margin: 20px;
-  color: black;
-}
-
 .card-category {
   position: absolute;
-  top: 10px;
-  left: 10px;
+  top: 0px;
+  left: 0px;
   font-size: 15px;
   margin-right: 10px;
   color: white;
