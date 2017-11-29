@@ -9,7 +9,7 @@
   transition: background 0.3s ease;
 }
 .btn-home:hover {
-  opacity: 0.8;
+  opacity: 0.9;
   background: #146d4f;
   border-color: #146d4f;
   color: white;
@@ -25,4 +25,12 @@ font-weight: bold;
 text-decoration: none !important;
 background: #146d4f;
 transition: background 0.3s ease;
+}
+
+.btn-back {
+  border-color: #146d4f;
+  border-radius: 4px;
+  padding: 5px 10px;
+  color: #146d4f;
+  font-size: 15px;
 }
