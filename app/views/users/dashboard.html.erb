@@ -6,7 +6,7 @@
         <% if @user.photo.url.present? %>
           <%= cl_image_tag(@user.photo.url(:bright_face)) %>
         <% else %>
-          <%= image_tag "https://cdn.dribbble.com/users/162725/screenshots/1166246/avatares-barambambu.gif", class: "img-circle-dashboard" %>
+          <%= image_tag "user-face.png", class: "img-circle-dashboard" %>
         <% end %>
         <br>
         <div class="profile-btns">
@@ -59,9 +59,16 @@
             <% if booking.status == "pending" %>
               <li class="booking">
                 <div class="pending-booking-plant-photo"><%= cl_image_tag booking.plant.photo, crop: :fill %></div>
-                <div class="pending-booking-user-photo"><%= image_tag('https://cours-informatique-gratuit.fr/wp-content/uploads/2014/05/compte-utilisateur-1.png') %></div> <!-- ADD USER PHOTO -->
+                <div class="pending-booking-user-photo">
+                  <% if booking.plant.user.photo.url.present? %>
+                    <%= cl_image_tag(booking.plant.user.photo.url(:bright_face)) %>
+                  <% else %>
+                    <%= image_tag "user-face.png", class: "img-circle-dashboard" %>
+                  <% end %>
+                  <%#= cl_image_tag booking.plant.user.photo %>
+                </div>
                 <div class="pending-booking-plant"><%= booking.plant.name %></div>
-                <div class="pending-booking-user"><%= booking.plant.user.email %></div> <!-- ADD NAME INSTEAD -->
+                <div class="pending-booking-user"><%= booking.plant.user.firstname %> <%= booking.plant.user.lastname %></div>
                 <div class="pending-booking-dates">
                   <div class="pending-booking-start"><%= booking.starts_at.strftime("%b %d, %Y") %></div>
                   <div class="pending-booking-end"><%= booking.ends_at.strftime("%b %d, %Y") %></div>
@@ -116,9 +123,9 @@
             <% if booking.status == "accepted" && (booking.starts_at < Time.now) && (Time.now < booking.ends_at) %>
               <li class="booking">
                 <div class="pending-booking-plant-photo"><%= cl_image_tag booking.plant.photo, crop: :fill %></div>
-                <div class="pending-booking-user-photo"><%= image_tag('https://cours-informatique-gratuit.fr/wp-content/uploads/2014/05/compte-utilisateur-1.png') %></div> <!-- ADD USER PHOTO -->
+                <div class="pending-booking-user-photo"><%= image_tag('https://cours-informatique-gratuit.fr/wp-content/uploads/2014/05/compte-utilisateur-1.png') %></div>
                 <div class="pending-booking-plant"><%= booking.plant.name %></div>
-                <div class="pending-booking-user"><%= booking.plant.user.email %></div> <!-- ADD NAME INSTEAD -->
+                <div class="pending-booking-user"><%= booking.plant.user.firstname %> <%= booking.plant.user.lastname %></div>
                 <div class="pending-booking-dates">
                   <div class="pending-booking-start"><%= booking.starts_at.strftime("%b %d, %Y") %></div>
                   <div class="pending-booking-end"><%= booking.ends_at.strftime("%b %d, %Y") %></div>
