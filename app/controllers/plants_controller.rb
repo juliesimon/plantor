@@ -2,13 +2,20 @@ class PlantsController < ApplicationController
 before_action :find_plant, only: [:show, :edit, :update, :destroy]
 skip_before_action :authenticate_user!, only: [:index, :show]
   def index
-    @plants = Plant.all
+    @plants = Plant.where.not(latitude: nil, longitude: nil)
+    @markers = @plants.map do |plant|
+      {
+        lat: plant.latitude,
+        lng: plant.longitude
+      }
+    end
   end
 
   def show
     @booking = Booking.new
     authorize @plant
     set_disabled_dates # method defined in ApplicationController
+    @marker = [{ lat: @plant.latitude, lng: @plant.longitude }]
   end
 
   def new

@@ -8,4 +8,6 @@ class Plant < ApplicationRecord
   validates :address, presence: true
   validates :category, inclusion: { in: CATEGORIES, case_sensitive: false }
   validates :photo, presence: true
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
 end
