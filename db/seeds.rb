@@ -59,7 +59,7 @@ plants_attributes = [
     instruction: "A Calathea Plant likes bright indirect light; so placing it in front of an east, west, or north window is ideal. Too much direct sun burns the leaves of a Calathea Plant and causes the beautiful leaf colors to fade. Keep the soil of a Calathea Plant moist but never soggy. Allow the top 2-3” to dry out before watering. Never let a Calathea Plant sit in water.",
     address:      '19 boulevard Victor Hugo 92200 Neuilly sur Seine',
     category:     'Green Plant',
-    remote_photo_url: 'http://www.decorumplantsflowers.com/site/images/6221/x28906.jpg.pagespeed.ic.R-qpAnacax.jpg',
+    remote_photo_url: 'https://s-media-cache-ak0.pinimg.com/originals/de/ef/05/deef0500a80943f5b5bb034a4994a0e5.jpg',
     user: mathilde
   },
   {
