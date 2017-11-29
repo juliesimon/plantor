@@ -57,7 +57,7 @@ plants_attributes = [
     name:         'Easy-going Calathea',
     price_per_day: 7,
     instruction: "A Calathea Plant likes bright indirect light; so placing it in front of an east, west, or north window is ideal. Too much direct sun burns the leaves of a Calathea Plant and causes the beautiful leaf colors to fade. Keep the soil of a Calathea Plant moist but never soggy. Allow the top 2-3” to dry out before watering. Never let a Calathea Plant sit in water.",
-    address:      '19 boulevard Victor Hugo 92200 Neuilly sur Seine',
+    address:      '16 villa Gaudelet 75011 Paris',
     category:     'Green Plant',
     remote_photo_url: 'https://s-media-cache-ak0.pinimg.com/originals/de/ef/05/deef0500a80943f5b5bb034a4994a0e5.jpg',
     user: mathilde
@@ -66,7 +66,7 @@ plants_attributes = [
     name:         'Original Airplant',
     price_per_day: 6,
     instruction: "Provided the atmosphere is not too dry it can survive with water misting and the occasional bath. Give it bright, filtered light. Protect it from frosts.",
-    address:      '19 boulevard Victor Hugo 92200 Neuilly sur Seine',
+    address:      '16 villa Gaudelet 75011 Paris',
     category:     'Decorative Plant',
     remote_photo_url: 'https://i0.wp.com/hello-hello.fr/wp-content/uploads/2017/02/plante-originale-airplant-tillandsias-xerographica.jpg?w=609&h=609&crop=1',
     user: mathilde
@@ -75,7 +75,7 @@ plants_attributes = [
     name:         'Pretty Chinese Money Plant',
     price_per_day: 5,
     instruction: "The best situation for a Chinese money plant is bright light, with no direct sunlight. The soil needs to mostly dry out between waterings, with more watering required in warmer, sunnier weather.",
-    address:      '19 boulevard Victor Hugo 92200 Neuilly sur Seine',
+    address:      '7 rue de Courcelles 75017 Paris',
     category:     'Green Plant',
     remote_photo_url: 'http://cdn.shopify.com/s/files/1/1802/1289/articles/2_1024x1024.jpg?v=1496745397',
     user: guillaume
