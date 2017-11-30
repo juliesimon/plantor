@@ -4,37 +4,48 @@
     <h2><%= @plant.name %></h2>
     </div>
   </div>
-      <%= link_to "Back to list", plants_path, class: "btn btn-back" %>
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-sm-6">
-        <div id="plant-description">
+  <div class="container-plant">
+    <div class="plant-information">
+      <div id="plant-description">
+        <%= link_to plants_path, class: "btn btn-back" do %>
+          <i class="fa fa-long-arrow-left"></i> Back to list
+        <% end %>
         <h4>About this plant</h4>
-          <ul>
-            <li><i class="fa fa-leaf" aria-hidden="true"></i> Category:  <p><%= @plant.category %></p></li>
-            <li><i class="fa fa-info" aria-hidden="true"></i> Instructions: <p><%= @plant.instruction %></p></li>
-            <li><i class="fa fa-location-arrow" aria-hidden="true"></i> Address: <p><%= @plant.address %></p></li>
-            <li><i class="fa fa-eur" aria-hidden="true"></i> Price/day: <p><%= @plant.price_per_day %> € </p></li>
-          </ul>
-        </div>
+        <h6><i class="fa fa-leaf" aria-hidden="true"></i> Category:</h6>
+        <p><%= @plant.category %></p>
+        <h6><i class="fa fa-info" aria-hidden="true"></i> Instructions: </h6>
+          <p><%= @plant.instruction %></p>
+        <h6><i class="fa fa-location-arrow" aria-hidden="true"></i> Address:</h6>
+          <p><%= @plant.address %></p>
+        <h6><i class="fa fa-eur" aria-hidden="true"></i> Price/day: </h6>
+        <p><%= @plant.price_per_day %> € </p>
+        <h6><i class="fa fa-user" aria-hidden="true"></i> Owner: </h6>
+        <p><%= @plant.user.firstname %> <%= @plant.user.lastname %>
+           <%= mail_to @plant.user.email, '<i class="fa fa-envelope" aria-hidden="true"></i>'.html_safe %></p>
       </div>
-      <div id="booking-form" data-dates="<%= @disabled.to_json %>" class="col-xs-12 col-sm-6">
-        <%= render "shared/form" %>
+      <div id="plant-reviews">
+          <% if @booking.reviews.present? %>
+          <% @booking.reviews.each do |review| %>
+          <h6><i class="fa fa-comments-o" aria-hidden="true"></i> Reviews about the plant: </h6>
+          <%review.rating.times do %>
+            <i class="fa fa-star" aria-hidden="true"></i>
+          <% end %>
+          <% (5 - review.rating).times do %>
+            <i class="fa fa-star-o" aria-hidden="true"></i>
+          <% end %>
+           <p><%= review.content %></p>
+          <% end %>
+          <% else %>
+          <h6><i class="fa fa-comments-o" aria-hidden="true"></i> No reviews about this plant yet !</h6>
+       <% end %>
       </div>
     </div>
-    <div class="row">
-      <div class="col-xs-12 col-sm-6">
-        <div id="user-description">
-          <h4>About the user</h4>
-          <ul>
-            <li><%=cl_image_tag(@plant.user.photo.url(:bright_face)) %></li>
-            <li><i class="fa fa-user" aria-hidden="true"></i> Name: <p> <%= @plant.user.firstname %> <%= @plant.user.lastname %></p></li>
-            <li><i class="fa fa-envelope-o" aria-hidden="true"></i> Contact information: <p><%= mail_to "Contact the owner", @plant.user.email %></p></li>
-          </ul>
-         </div>
+      <div id="booking-form" data-dates="<%= @disabled.to_json %>">
+      <%= render "shared/form" %>
       </div>
-      <div class="col-xs-12 col-sm-6">
-        <div id="map" style="width: 100%; height: 300px;" data-markers="<%= @marker.to_json %>"></div>
-      </div>
-    </div>
   </div>
+    <div class="map">
+      <h6><i class="fa fa-map-marker" aria-hidden="true"></i> Location of the plant:</h6>
+      <div id="map" style="width: 100%; height: 300px;" data-markers="<%= @marker.to_json %>"></div>
+    </div>
+</div>
