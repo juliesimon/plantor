@@ -14,6 +14,12 @@
     font-size: 12px;
   }
 }
+.btn-vertical-align-icon {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
 .form-button:hover {
   box-shadow: 0 0 10px rgba(0,0,0,0.4);
 }
