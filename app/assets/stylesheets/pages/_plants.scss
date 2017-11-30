@@ -1,0 +1,53 @@
+.all-my-plants {
+  background: white;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  padding: 10px;
+  margin: 10px;
+  display: flex;
+  justify-content: space-around;
+  ul {
+    padding-left: 0;
+  }
+  h3 {
+    color: $green;
+    margin-bottom: 20px;
+  }
+  li {
+    list-style: none;
+  }
+  a {
+    color: #146d4f;
+    text-decoration: none;
+    font-weight: 300;
+  }
+}
+
+.all-my-plants-bis {
+  width: 98%;
+}
+
+.plant-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 15px;
+  margin-bottom: 15px;
+}
+
+.plant-list-plant-photo {
+  flex: 0 0 5%;
+  img {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5) ;
+  }
+  min-width: 100px;
+}
+
+.plant-list-name {
+  min-width: 400px;
+}
+.plant-list-small {
+  min-width: 100px;
+}

@@ -1,13 +1,37 @@
-
-<div class="">
-  <% if current_user == @user %>
-    <h1>All my plants</h1>
-  <% else %>
-     <h1><%= "All #{@user.firstname}'s plants" %></h1>
-  <% end %>
-
-  <div class="">
-    <% @plants.each do |plant| %>
+<div class="all-my-plants text-center">
+  <div class="all-my-plants-bis ">
+    <% if current_user == @user %>
+      <h3>All my plants</h3>
+    <% else %>
+       <h1><%= "All #{@user.firstname}'s plants" %></h1>
     <% end %>
+    <ul>
+      <li class="plant-list">
+        <div class="plant-list-plant-photo"></div>
+        <div class="plant-list-name"><strong>Title</strong></div>
+        <div class="plant-list-small"><strong>Pending<br>Request</strong></div>
+        <div class="plant-list-small"><strong>Accepted<br>Request</strong></div>
+        <div class="plant-list-small"><strong>Average<br>Rating</strong></div>
+      </li>
+      <% @plants.each do |plant| %>
+        <li class="plant-list">
+          <div class="plant-list-plant-photo">
+            <%= cl_image_tag plant.photo, crop: :fill %>
+          </div>
+          <div class="plant-list-name">
+            <%= link_to plant.name, plant_path(plant) %>
+          </div>
+          <div class="plant-list-small">
+            <%= link_to plant.bookings.where(status:"pending").length, dashboard_user_path(@user) %>
+          </div>
+          <div class="plant-list-small">
+            <%= link_to plant.bookings.where(status:"accepted").length, dashboard_user_path(@user) %>
+          </div>
+          <div class="plant-list-small">
+
+          </div>
+        </li>
+      <% end %>
+    </ul>
   </div>
 </div>
