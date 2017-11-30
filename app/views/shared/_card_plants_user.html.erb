@@ -1,0 +1,24 @@
+<div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.4) 50%), url('<%= cl_image_path plant.photo, crop: :fill %>')">
+  <div class="card-category">
+    <%= plant.category %>
+  </div>
+  <div class="card-description">
+    <h3><%= plant.name %></h3>
+    <p><%= "#{plant.price_per_day} €/day" %></p>
+  </div>
+  <%= link_to "", plant_path(plant), class: "card-link" %>
+  <% if @user == current_user %>
+    <div class="card-footer">
+      <div class="fa-blue">
+        <% if policy(plant).update? %>
+          <%= link_to '<i class="fa fa-pencil" aria-hidden="true"></i> Edit'.html_safe, edit_plant_path(plant)%>
+        <% end %>
+      </div>
+      <div class="fa-red">
+        <% if policy(plant).destroy? %>
+          <%= link_to "Delete", plant_path(plant, from: "list"), data: { confirm: "Are you sure?" }, method: :delete %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
