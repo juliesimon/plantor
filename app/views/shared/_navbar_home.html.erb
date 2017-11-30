@@ -8,6 +8,7 @@
       <div class="navbar-wagon-right hidden-xs hidden-sm">
       <% if user_signed_in? %>
       <%= link_to 'My Dashboard', dashboard_user_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to 'Add a plant', new_plant_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to 'Find', plants_path, class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "navbar-wagon-item navbar-wagon-link" %>
       <% else %>
@@ -24,9 +25,10 @@
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
         <% if user_signed_in? %>
-      <%= link_to 'My Dashboard', dashboard_user_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to 'Find', plants_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "navbar-wagon-item navbar-wagon-link" %>
+      <li><%= link_to 'My Dashboard', dashboard_user_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %></li>
+      <li><%= link_to 'Add a plant', new_plant_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %></li>
+      <li><%= link_to 'Find', plants_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
+      <li><%= link_to 'Logout', destroy_user_session_path, method: :delete, class: "navbar-wagon-item navbar-wagon-link" %></li>
     <% else %>
         <li><a href="/users/sign_up">Sign up</a></li>
         <li><a href="/users/sign_in">Sign in</a></li>
