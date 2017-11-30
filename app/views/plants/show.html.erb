@@ -24,17 +24,17 @@
            <%= mail_to @plant.user.email, '<i class="fa fa-envelope" aria-hidden="true"></i>'.html_safe %></p>
       </div>
       <div id="plant-reviews">
-          <% if @booking.reviews.present? %>
-          <% @booking.reviews.each do |review| %>
-          <h6><i class="fa fa-comments-o" aria-hidden="true"></i> Reviews about the plant: </h6>
-          <%review.rating.times do %>
-            <i class="fa fa-star" aria-hidden="true"></i>
-          <% end %>
-          <% (5 - review.rating).times do %>
-            <i class="fa fa-star-o" aria-hidden="true"></i>
-          <% end %>
-           <p><%= review.content %></p>
-          <% end %>
+          <% if @plant.reviews.any? %>
+            <h6><i class="fa fa-comments-o" aria-hidden="true"></i> Reviews about the plant: </h6>
+            <% @plant.reviews.each do |review| %>
+              <% review.rating.times do %>
+                <i class="fa fa-star" aria-hidden="true"></i>
+              <% end %>
+              <% (5 - review.rating).times do %>
+                <i class="fa fa-star-o" aria-hidden="true"></i>
+              <% end %>
+             <p><%= review.content %></p>
+            <% end %>
           <% else %>
           <h6><i class="fa fa-comments-o" aria-hidden="true"></i> No reviews about this plant yet !</h6>
        <% end %>
