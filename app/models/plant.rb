@@ -10,4 +10,14 @@ class Plant < ApplicationRecord
   validates :photo, presence: true
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
+
+  include PgSearch
+  pg_search_scope :search_by_name_and_category,
+    against: [ :name, :category, :instruction, :address ],
+    associated_against: {
+      user: [ :firstname, :lastname ]
+    },
+    using: {
+      tsearch: { prefix: true }
+    }
 end
