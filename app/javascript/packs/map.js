@@ -95,6 +95,7 @@ if (mapElement) { // don't try to build a map if there's no div#map to inject in
   });
   map.setStyle('map_style');
   map.addMarkers(markers)
+
   if (markers.length === 0) {
     map.setZoom(2);
   } else if (markers.length === 1) {
@@ -102,7 +103,26 @@ if (mapElement) { // don't try to build a map if there's no div#map to inject in
     map.setZoom(14);
   } else {
     map.fitLatLngBounds(markers);
+
   }
+
+
 }
 autocomplete();
+
+
+
+document.querySelectorAll(".card").forEach((card) => {
+  card.addEventListener("mouseover", (event) => {
+    // marker.setIcon('logo.png')
+    // event.currentTarget.classList.toggle("test");
+  });
+});
+
+  // markers[0].addListener('click', function() {
+  //   console.log("yes");
+  //   markers.setIcon("logo.png");
+  //   infowindow.open(map);
+  //   });
+
 
