@@ -5,7 +5,7 @@
 
     <div class="main-dash">
       <div class="main-content">
-        <h3>Welcome <%= @user.firstname %></h3>
+        <h3>Welcome <%= @user.firstname %>,</h3>
         <% if @user.photo.url.present? %>
           <%= cl_image_tag(@user.photo.url(:bright_face)) %>
         <% else %>
@@ -29,6 +29,15 @@
             </li>
             <li role="presentation">
               <a href="#my-plants" aria-controls="profile" role="tab" data-toggle="tab">My Plants</a>
+              <% count = 0 %>
+              <% @plants.each do |plant| %>
+                <% plant.bookings.each do |booking| %>
+                  <% count += 1 if booking.status == "pending" %>
+                <% end %>
+              <% end %>
+              <% unless count == 0 %>
+                <span class="notify-badge"><%= count %></span>
+              <% end %>
             </li>
           </ul>
 
@@ -55,21 +64,21 @@
                 <% @bookings.each do |booking| %>
                   <% if booking.status == "pending" %>
                     <li class="booking">
-                      <div class="pending-booking-plant-photo"><%= cl_image_tag booking.plant.photo, crop: :fill %></div>
-                      <div class="pending-booking-user-photo">
+                      <div class="booking-plant-photo"><%= cl_image_tag booking.plant.photo, crop: :fill %></div>
+                      <div class="booking-user-photo">
                         <% if booking.plant.user.photo.url.present? %>
                           <%= cl_image_tag(booking.plant.user.photo.url(:bright_face)) %>
                         <% else %>
                           <%= image_tag "user-face.png", class: "img-circle-dashboard" %>
                         <% end %>
                       </div>
-                      <div class="pending-booking-plant"><%= booking.plant.name %></div>
-                      <div class="pending-booking-user"><%= booking.plant.user.firstname %> <%= booking.plant.user.lastname %></div>
-                      <div class="pending-booking-dates">
-                        <div class="pending-booking-start"><%= booking.starts_at.strftime("%b %d, %Y") %></div>
-                        <div class="pending-booking-end"><%= booking.ends_at.strftime("%b %d, %Y") %></div>
+                      <div class="booking-plant"><%= booking.plant.name %></div>
+                      <div class="booking-user"><%= booking.plant.user.firstname %> <%= booking.plant.user.lastname %></div>
+                      <div class="booking-dates">
+                        <div class="booking-start"><%= booking.starts_at.strftime("%b %d, %Y") %></div>
+                        <div class="booking-end"><%= booking.ends_at.strftime("%b %d, %Y") %></div>
                       </div>
-                      <div class="pending-booking-status">
+                      <div class="booking-status">
                         <i id="wait-orange" class="fa fa-clock-o" aria-hidden="true"></i>
                       </div>
                     </li>
@@ -77,10 +86,9 @@
                 <% end %>
               </ul>
             </div>
-
           </div>
           <div class="accepted">
-            <div class="pending-bookings">
+            <div class="accepted-bookings">
               <h3>
                 <% count = @bookings.count {|booking| booking.status == "accepted" && (Time.now < booking.ends_at) } %> <!-- Counts # Accepted -->
                 <%= pluralize count, "Accepted Request" %>
@@ -92,20 +100,50 @@
                 <% @bookings.each do |booking| %>
                   <% if booking.status == "accepted" && (Time.now < booking.ends_at) %>
                     <li class="booking">
-                      <div class="pending-booking-plant-photo"><%= cl_image_tag booking.plant.photo, crop: :fill %></div>
-                      <div class="pending-booking-user-photo"><%= image_tag('https://cours-informatique-gratuit.fr/wp-content/uploads/2014/05/compte-utilisateur-1.png') %></div>
-                      <div class="pending-booking-plant"><%= booking.plant.name %></div>
-                      <div class="pending-booking-user"><%= booking.plant.user.firstname %> <%= booking.plant.user.lastname %></div>
-                      <div class="pending-booking-dates">
-                        <div class="pending-booking-start"><%= booking.starts_at.strftime("%b %d, %Y") %></div>
-                        <div class="pending-booking-end"><%= booking.ends_at.strftime("%b %d, %Y") %></div>
+                      <div class="booking-plant-photo"><%= cl_image_tag booking.plant.photo, crop: :fill %></div>
+                      <div class="booking-user-photo"><%= image_tag('https://cours-informatique-gratuit.fr/wp-content/uploads/2014/05/compte-utilisateur-1.png') %></div>
+                      <div class="booking-plant"><%= booking.plant.name %></div>
+                      <div class="booking-user"><%= booking.plant.user.firstname %> <%= booking.plant.user.lastname %></div>
+                      <div class="booking-dates">
+                        <div class="booking-start"><%= booking.starts_at.strftime("%b %d, %Y") %></div>
+                        <div class="booking-end"><%= booking.ends_at.strftime("%b %d, %Y") %></div>
                       </div>
-                      <div class="pending-booking-status">
+                      <div class="booking-status">
                         <% if booking.status == "accepted" && (Time.now < booking.starts_at) %>
                           <i id="delete-red" class="fa fa-calendar-times-o" aria-hidden="true"></i>
                         <% else %>
                           <i id="validate-green" class="fa fa-calendar-check-o" aria-hidden="true"></i>
                         <% end %>
+                      </div>
+                    </li>
+                  <% end %>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+          <div class="past">
+            <div class="past-bookings">
+              <h3>
+                <% count = @bookings.count {|booking| booking.status == "accepted" && (Time.now > booking.ends_at) } %> <!-- Counts # Accepted -->
+                <%= pluralize count, "Past Request" %>
+              </h3>
+              <ul>
+                <% unless count == 0 %>
+                  <%= render "headers" %>
+                <% end %>
+                <% @bookings.each do |booking| %>
+                  <% if booking.status == "accepted" && (Time.now > booking.ends_at) %>
+                    <li class="booking">
+                      <div class="booking-plant-photo"><%= cl_image_tag booking.plant.photo, crop: :fill %></div>
+                      <div class="booking-user-photo"><%= image_tag('https://cours-informatique-gratuit.fr/wp-content/uploads/2014/05/compte-utilisateur-1.png') %></div>
+                      <div class="booking-plant"><%= booking.plant.name %></div>
+                      <div class="booking-user"><%= booking.plant.user.firstname %> <%= booking.plant.user.lastname %></div>
+                      <div class="booking-dates">
+                        <div class="booking-start"><%= booking.starts_at.strftime("%b %d, %Y") %></div>
+                        <div class="booking-end"><%= booking.ends_at.strftime("%b %d, %Y") %></div>
+                      </div>
+                      <div class="booking-status">
+                        <i class="fa fa-calendar-o" aria-hidden="true"></i>
                       </div>
                     </li>
                   <% end %>
@@ -136,21 +174,21 @@
                   <% plant.bookings.each do |booking| %>
                     <% if booking.status == "pending" %>
                       <li class="booking">
-                        <div class="pending-booking-plant-photo"><%= cl_image_tag booking.plant.photo, crop: :fill %></div>
-                        <div class="pending-booking-user-photo">
+                        <div class="booking-plant-photo"><%= cl_image_tag booking.plant.photo, crop: :fill %></div>
+                        <div class="booking-user-photo">
                           <% if booking.plant.user.photo.url.present? %>
                             <%= cl_image_tag(booking.plant.user.photo.url(:bright_face)) %>
                           <% else %>
                             <%= image_tag "user-face.png", class: "img-circle-dashboard" %>
                           <% end %>
                         </div>
-                        <div class="pending-booking-plant"><%= booking.plant.name %></div>
-                        <div class="pending-booking-user"><%= booking.user.firstname %> <%= booking.user.lastname %></div>
-                        <div class="pending-booking-dates">
-                          <div class="pending-booking-start"><%= booking.starts_at.strftime("%b %d, %Y") %></div>
-                          <div class="pending-booking-end"><%= booking.ends_at.strftime("%b %d, %Y") %></div>
+                        <div class="booking-plant"><%= booking.plant.name %></div>
+                        <div class="booking-user"><%= booking.user.firstname %> <%= booking.user.lastname %></div>
+                        <div class="booking-dates">
+                          <div class="booking-start"><%= booking.starts_at.strftime("%b %d, %Y") %></div>
+                          <div class="booking-end"><%= booking.ends_at.strftime("%b %d, %Y") %></div>
                         </div>
-                        <div class="pending-booking-status">
+                        <div class="booking-status">
                           <%= link_to '<i class="fa fa-check" aria-hidden="true"></i>'.html_safe, accept_booking_path(booking), method: :patch, id: "validate-green"%>
                           <%= link_to '<i class="fa fa-times" aria-hidden="true"></i>'.html_safe, decline_booking_path(booking), method: :patch, id: "delete-red" %>
                         </div>
@@ -163,7 +201,7 @@
             </div>
           </div>
           <div class="accepted">
-            <div class="pending-bookings">
+            <div class="accepted-bookings">
               <h3>
                 <% count = 0 %>
                 <% @plants.each do |plant| %>
@@ -181,20 +219,57 @@
                   <% plant.bookings.each do |booking| %>
                     <% if booking.status == "accepted" && (Time.now < booking.ends_at) %>
                       <li class="booking">
-                        <div class="pending-booking-plant-photo"><%= cl_image_tag booking.plant.photo, crop: :fill %></div>
-                        <div class="pending-booking-user-photo"><%= image_tag('https://cours-informatique-gratuit.fr/wp-content/uploads/2014/05/compte-utilisateur-1.png') %></div>
-                        <div class="pending-booking-plant"><%= booking.plant.name %></div>
-                        <div class="pending-booking-user"><%= booking.user.firstname %> <%= booking.user.lastname %></div>
-                        <div class="pending-booking-dates">
-                          <div class="pending-booking-start"><%= booking.starts_at.strftime("%b %d, %Y") %></div>
-                          <div class="pending-booking-end"><%= booking.ends_at.strftime("%b %d, %Y") %></div>
+                        <div class="booking-plant-photo"><%= cl_image_tag booking.plant.photo, crop: :fill %></div>
+                        <div class="booking-user-photo"><%= image_tag('https://cours-informatique-gratuit.fr/wp-content/uploads/2014/05/compte-utilisateur-1.png') %></div>
+                        <div class="booking-plant"><%= booking.plant.name %></div>
+                        <div class="booking-user"><%= booking.user.firstname %> <%= booking.user.lastname %></div>
+                        <div class="booking-dates">
+                          <div class="booking-start"><%= booking.starts_at.strftime("%b %d, %Y") %></div>
+                          <div class="booking-end"><%= booking.ends_at.strftime("%b %d, %Y") %></div>
                         </div>
-                        <div class="pending-booking-status">
+                        <div class="booking-status">
                           <% if booking.status == "accepted" && (Time.now < booking.starts_at) %>
                             <i id="delete-red" class="fa fa-calendar-times-o" aria-hidden="true"></i>
                           <% else %>
                             <i id="validate-green" class="fa fa-calendar-check-o" aria-hidden="true"></i>
                           <% end %>
+                        </div>
+                      </li>
+                    <% end %>
+                  <% end %>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+          <div class="past">
+            <div class="past-bookings">
+              <h3>
+                <% count = 0 %>
+                <% @plants.each do |plant| %>
+                  <% plant.bookings.each do |booking| %>
+                    <% count += 1 if booking.status == "accepted" && (Time.now > booking.ends_at) %>
+                  <% end %>
+                <% end %>
+                <%= pluralize count, "Past Request" %>
+              </h3>
+              <ul>
+                <% unless count == 0 %>
+                  <%= render "headers" %>
+                <% end %>
+                <% @plants.each do |plant| %>
+                  <% plant.bookings.each do |booking| %>
+                    <% if booking.status == "accepted" && (Time.now > booking.ends_at) %>
+                      <li class="booking">
+                        <div class="booking-plant-photo"><%= cl_image_tag booking.plant.photo, crop: :fill %></div>
+                        <div class="booking-user-photo"><%= image_tag('https://cours-informatique-gratuit.fr/wp-content/uploads/2014/05/compte-utilisateur-1.png') %></div>
+                        <div class="booking-plant"><%= booking.plant.name %></div>
+                        <div class="booking-user"><%= booking.user.firstname %> <%= booking.user.lastname %></div>
+                        <div class="booking-dates">
+                          <div class="booking-start"><%= booking.starts_at.strftime("%b %d, %Y") %></div>
+                          <div class="booking-end"><%= booking.ends_at.strftime("%b %d, %Y") %></div>
+                        </div>
+                        <div class="booking-status">
+                          <i class="fa fa-calendar-o" aria-hidden="true"></i>
                         </div>
                       </li>
                     <% end %>
