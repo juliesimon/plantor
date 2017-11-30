@@ -1,7 +1,7 @@
 .card-container {
   overflow-y: scroll;
   margin-top: 30px;
-  margin-left: 20px;
+  margin-left: 57px;
   color: black;
   display: flex;
   flex-wrap: wrap;
@@ -15,6 +15,10 @@
   top: 0 !important;
 }
 
+// .test {
+//   width: 300px;
+// }
+
 .card {
   display: flex;
   height: 350px;
@@ -23,12 +27,11 @@
   background-position: center;
   position: relative;
   margin: 30px;
-  padding: 10px;
   margin-right: 0px;
-  border-radius: 5px;
+  border-radius: 3px;
   font-style: $body-font;
   min-width: 200px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
 }
 
 .card:hover {
