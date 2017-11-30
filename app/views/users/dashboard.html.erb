@@ -15,27 +15,12 @@
         <p> <%= Time.now.strftime("%b %d, %Y") %></p>
 
         <div class="profile-btns">
-          <button type="button" class="btn-secondary form-button" data-toggle="modal" data-target="#editFormModal"> Edit Profile </button>
-
-          <!-- Modal -->
-          <div class="modal fade" id="editFormModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Edit user</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <%= render 'form-user' %>
-                </div>
-              </div>
-            </div>
+          <div class="flex-column">
+            <button type="button" class="btn-secondary form-button" data-toggle="modal" data-target="#editFormModal"> Edit Profile </button>
+            <%= link_to 'All My Plants', user_path(current_user), class: "btn-secondary form-button" %>
+            <%= link_to 'Add A Plant', new_plant_path, class: "btn-secondary form-button" %>
           </div>
-
-          <p>  <%= link_to 'All My Plants', user_path(current_user), class: "btn-secondary form-button" %></p>
-          <p>  <%= link_to 'Add A Plant', new_plant_path, class: "btn-secondary form-button" %></p>
+        </div>
 
           <!-- Tabs -->
           <ul class="nav nav-tabs" role="tablist">
@@ -46,8 +31,6 @@
               <a href="#my-plants" aria-controls="profile" role="tab" data-toggle="tab">My Plants</a>
             </li>
           </ul>
-
-        </div>
 
       </div>
     </div>
@@ -62,7 +45,7 @@
           <div class="pending">
             <div class="pending-bookings">
               <h3>
-                <%count = @bookings.count {|booking| booking.status == "pending" } %> <!-- Counts # Pending -->
+                <% count = @bookings.count {|booking| booking.status == "pending" } %> <!-- Counts # Pending -->
                 <%= pluralize count, "Pending Request" %>
               </h3>
               <ul>
@@ -102,7 +85,9 @@
                 <%= pluralize count, "Accepted Request" %>
               </h3>
               <ul>
-                <%= render "headers" %>
+                <% unless count == 0 %>
+                  <%= render "headers" %>
+                <% end %>
                 <% @bookings.each do |booking| %>
                   <% if booking.status == "accepted" && (Time.now < booking.ends_at) %>
                     <li class="booking">
@@ -143,7 +128,9 @@
                 <%= pluralize count, "Pending Request" %>
               </h3>
               <ul>
-                <%= render "headers" %>
+                <% unless count == 0 %>
+                  <%= render "headers" %>
+                <% end %>
                 <% @plants.each do |plant| %>
                   <% plant.bookings.each do |booking| %>
                     <% if booking.status == "pending" %>
@@ -185,7 +172,9 @@
                 <%= pluralize count, "Accepted Request" %>
               </h3>
               <ul>
-                <%= render "headers" %>
+                <% unless count == 0 %>
+                  <%= render "headers" %>
+                <% end %>
                 <% @plants.each do |plant| %>
                   <% plant.bookings.each do |booking| %>
                     <% if booking.status == "accepted" && (Time.now < booking.ends_at) %>
@@ -216,5 +205,21 @@
       </div>
     </div>
 
+  </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="editFormModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit user</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= render 'form-user' %>
+      </div>
+    </div>
   </div>
 </div>
