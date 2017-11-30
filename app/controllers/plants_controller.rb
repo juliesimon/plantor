@@ -2,13 +2,24 @@ class PlantsController < ApplicationController
 before_action :find_plant, only: [:show, :edit, :update, :destroy]
 skip_before_action :authenticate_user!, only: [:index, :show]
   def index
+
     @plants = Plant.where.not(latitude: nil, longitude: nil)
     @markers = @plants.map do |plant|
       {
         lat: plant.latitude,
-        lng: plant.longitude
+        lng: plant.longitude,
+        icon: "http://res.cloudinary.com/djlkudqpv/image/upload/c_scale,h_30,q_100,r_0,w_30/v1512062487/logo_gcdlo3.png"
       }
     end
+    @chosencategory = false
+    if params[:query].present?
+      @plants = Plant.search_by_name_and_category(params[:query])
+    elsif params[:category].present?
+      @plants = Plant.search_by_name_and_category(params[:category])
+    else
+      @plants = Plant.all
+    end
+
   end
 
   def show
