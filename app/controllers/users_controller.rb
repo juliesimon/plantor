@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:show, :update]
-  before_action :set_user, only: [:show, :dashboard, :update]
+  before_action :set_user, only: [:plants, :dashboard, :update]
 
-  def show
+  def plants
     authorize @user
+    @plants = Plant.where(user: params[:id])
   end
 
   def dashboard

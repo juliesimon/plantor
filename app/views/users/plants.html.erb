@@ -1,0 +1,13 @@
+
+<div class="">
+  <% if current_user == @user %>
+    <h1>All my plants</h1>
+  <% else %>
+     <h1><%= "All #{@user.firstname}'s plants" %></h1>
+  <% end %>
+
+  <div class="">
+    <% @plants.each do |plant| %>
+    <% end %>
+  </div>
+</div>

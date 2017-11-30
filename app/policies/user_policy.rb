@@ -5,7 +5,7 @@ class UserPolicy < ApplicationPolicy
     end
   end
 
-  def show?
+  def plants?
     is_user_the_owner_or_admin?
   end
 
