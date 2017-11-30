@@ -9,6 +9,11 @@ skip_before_action :authenticate_user!, only: [:index, :show]
         lng: plant.longitude
       }
     end
+    if params[:query].present?
+      @plants = Plant.search_by_name_and_category(params[:query])
+    else
+      @plants = Plant.all
+    end
   end
 
   def show
