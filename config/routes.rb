@@ -10,9 +10,11 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get 'about', to: 'pages#about'
   resources :plants, only: [:index, :show, :new, :create, :edit, :update, :destroy] do
-    resources :bookings, only: [:create]
+    resources :bookings, only: [ :create ]
   end
-
+  resources :bookings, only: [] do
+      resources :reviews, only: [ :new, :create ]
+  end
   patch 'bookings/:booking_id/accept', to: "bookings#accept", as: :accept_booking
   patch 'bookings/:booking_id/decline', to: "bookings#decline", as: :decline_booking
 
