@@ -38,11 +38,11 @@ p {
 }
 
 .search-bar-home {
-  width: 70%;
+  flex: 0 60%;
 
 }
 .start-button {
-  flex: 0 30%;
+  flex: 1;
   border: none;
 
 }
