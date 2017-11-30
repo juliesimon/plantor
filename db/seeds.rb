@@ -85,5 +85,5 @@ plants_attributes = [
 Plant.create(plants_attributes)
 
 Booking.create!(plant: Plant.first, user: mathilde, status: "accepted", starts_at: DateTime.parse("09/11/2017 17:00"), ends_at: DateTime.parse("12/12/2017 17:00"))
-
+Booking.create!(plant: Plant.first, user: mathilde, status: "accepted", starts_at: DateTime.parse("08/11/2017 17:00"), ends_at: DateTime.parse("11/11/2017 17:00"))
 puts 'Finished creating plants!'

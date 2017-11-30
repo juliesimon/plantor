@@ -56,7 +56,7 @@
             </div>
           </li>
           <% @bookings.each do |booking| %>
-            <% if booking.status == "pending" %>
+            <% # if booking.status == "pending" %>
               <li class="booking">
                 <div class="pending-booking-plant-photo"><%= cl_image_tag booking.plant.photo, crop: :fill %></div>
                 <div class="pending-booking-user-photo">
@@ -74,7 +74,7 @@
                   <div class="pending-booking-end"><%= booking.ends_at.strftime("%b %d, %Y") %></div>
                 </div>
               </li>
-            <% end %>
+            <% # end %>
           <% end %>
         </ul>
         <!-- <ul>
