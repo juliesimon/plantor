@@ -1,0 +1,8 @@
+function showContentTab() {
+  $('#plants-dashboard-tab a').on('click', function (e) {
+    e.preventDefault()
+    $(this).tab('show')
+  })
+}
+
+export { showContentTab };
