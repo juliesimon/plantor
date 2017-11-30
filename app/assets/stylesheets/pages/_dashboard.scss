@@ -5,11 +5,14 @@
 .form-button{
   border: solid #146d4f !important;
   font-weight: lighter !important;
-  width : 120px !important;
+  width : 140px !important;
+  margin: 10px;
   &:hover {
     color: white !important;
   }
-  margin: 10px;
+  i {
+    font-size: 12px;
+  }
 }
 .form-button:hover {
   box-shadow: 0 0 10px rgba(0,0,0,0.4);
@@ -19,7 +22,7 @@
   flex: 0 0 25%;
   position: sticky;
   padding: 0;
-  height: 70vh;
+  height: 80vh;
 }
 .profile-dash .right-dash {
   flex: 0 0 73%;
