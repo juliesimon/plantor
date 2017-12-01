@@ -2,7 +2,6 @@ class PlantsController < ApplicationController
 before_action :find_plant, only: [:show, :edit, :update, :destroy]
 skip_before_action :authenticate_user!, only: [:index, :show]
   def index
-
     @plants = Plant.where.not(latitude: nil, longitude: nil)
     @markers = @plants.map do |plant|
       {
@@ -19,7 +18,6 @@ skip_before_action :authenticate_user!, only: [:index, :show]
     else
       @plants = Plant.all
     end
-
   end
 
   def show
@@ -36,7 +34,7 @@ skip_before_action :authenticate_user!, only: [:index, :show]
 
   def create
     @plant = Plant.new(plant_params)
-    @plant.user = User.first
+    @plant.user = current_user
     authorize @plant
     if @plant.save
       redirect_to plant_path(@plant)
