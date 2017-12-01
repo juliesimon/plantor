@@ -156,17 +156,18 @@
                       </div>
                       <div class="booking-status">
                         <% if booking.reviews.present? %>
-                          <i class="fa fa-calendar-o" aria-hidden="true"></i>
+                          <i class="fa fa-comment-o" aria-hidden="true"></i>
+                          <i id="validate-green-no-hover" class="fa fa-check" aria-hidden="true"></i>
                         <% else %>
 
-                          <button type="button" class="btn-secondary form-button btn-vertical-align-icon" data-toggle="modal" data-target="#addreviewFormModal"><i class="fa fa-commenting" aria-hidden="true"></i> Review </button>
+                          <button type="button" id="small-btn-add-review" class="btn-secondary form-button btn-vertical-align-icon" data-toggle="modal" data-target="#addreviewFormModal"><i class="fa fa-commenting" aria-hidden="true"></i> </button>
 
                           <!-- Modal add a review -->
                           <div class="modal fade" id="addreviewFormModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                               <div class="modal-content">
                                 <div class="modal-header">
-                                  <h5 class="modal-title" id="exampleModalLabel">Add a review</h5>
+                                  <h5 class="modal-title" id="exampleModalLabel">Add a Review</h5>
                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                   </button>
@@ -303,7 +304,12 @@
                           <div class="booking-end"><%= booking.ends_at.strftime("%b %d, %Y") %></div>
                         </div>
                         <div class="booking-status">
-                          <i class="fa fa-calendar-o" aria-hidden="true"></i>
+                            <i class="fa fa-comment-o" aria-hidden="true"></i>
+                          <% if booking.reviews.present? %>
+                            <i id="validate-green-no-hover" class="fa fa-check" aria-hidden="true"></i>
+                          <% else %>
+                            <i id="delete-red" class="fa fa-times" aria-hidden="true"></i>
+                          <% end %>
                         </div>
                       </li>
                     <% end %>
@@ -324,7 +330,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Change your picture</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Change Profile Picture</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>

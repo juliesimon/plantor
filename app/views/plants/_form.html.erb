@@ -7,8 +7,8 @@
   <%= f.input :photo, label: 'Add a Photo' %>
   <%= f.input :photo_cache, as: :hidden %>
   <% if @plant.id.present? %>
-    <%= f.submit "Edit your plant", class: "btn btn-secondary" %>
+    <%= f.submit "Edit your plant", id: "#btn-no-padding", class: "btn-secondary form-button" %>
   <% else %>
-    <%= f.submit "Add your plant", class: "btn btn-secondary" %>
+    <%= f.submit "Add your plant", id: "#btn-no-padding", class: "btn-secondary form-button" %>
   <% end %>
 <% end %>
