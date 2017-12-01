@@ -1,5 +1,5 @@
 class Plant < ApplicationRecord
-  CATEGORIES = ["Green Plant", "Blooming Plant", "Decorative Plant", "Indoor Plant (large)", "Bonsai", "Cactus", "Artificial Plant", "Shrub", "Bamboo", "Fruit Tree", "Conifer"].sort
+  CATEGORIES = ["Green Plant", "Blooming Plant", "Decorative Plant", "Large Plant", "Bonsai", "Cactus", "Artificial Plant", "Shrub", "Bamboo", "Fruit Tree", "Conifer"].sort
   belongs_to :user
   has_many :bookings, dependent: :destroy
   has_many :reviews, through: :bookings

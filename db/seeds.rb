@@ -1,10 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 puts 'Cleaning database...'
 Plant.destroy_all
 User.destroy_all
@@ -47,7 +40,7 @@ plants_attributes = [
     price_per_day: 9,
     instruction: "Water when the top quarter-to-third of the soil feels dry to the touch. Keep leaves clean and dust-free by washing with a cloth dipped in a solution of a drop of dishwashing detergent in a few cups of water.",
     address:      '19 boulevard Victor Hugo 92200 Neuilly sur Seine',
-    category:     'Indoor Plant (large)',
+    category:     'Large Plant',
     remote_photo_url: 'https://cdn.shopify.com/s/files/1/0245/2459/products/monstera-deliciosa-indoor-plant_1024x1024.jpg?v=1489290367',
     user: alexia
   },

@@ -33,12 +33,14 @@
   font-style: $body-font;
   min-width: 210px;
   box-shadow: 0 0 10px rgba(0,0,0,0.4);
-}
-
-.card:hover {
-  background-size: cover !important;
-  color: green;
-  opacity: 0.7;
+  &:hover {
+    .wrapper {
+      height: 100%;
+      .card-more-description {
+        color: white;
+      }
+    }
+  }
 }
 
 .card-category {
@@ -59,21 +61,22 @@
   color: white;
 }
 
-.card-description {
+.card-info-small {
   position: absolute;
-  bottom: 10px;
-  left: 10px;
-  color: white;
+  bottom: 0px;
+  left: 0px;
   margin-right: 10px;
-}
-
-.card-description h3 {
-  font-size: 24px;
-}
-.card-description p {
-  font-size: 20px;
-  opacity: 0.7;
-  font-weight: lighter;
+  .card-description {
+    color: white;
+    h3 {
+      font-size: 24px;
+    }
+    p {
+      font-size: 20px;
+      opacity: 0.7;
+      font-weight: lighter;
+    }
+  }
 }
 .card-link {
   position: absolute;
@@ -85,6 +88,64 @@
   background: black;
   opacity: 0;
 }
-.card-link:hover {
-  opacity: 0.1;
+
+.card-info-small {
+  height: 150px;
+  position: absolute;
+  bottom: 0px;
+  display: flex;
+  flex-direction: column;
+  .card-description {
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+    h3 {
+      font-size: 24px;
+    }
+    p {
+      font-size: 20px;
+      opacity: 0.7;
+      font-weight: 200;
+    }
+  }
+  .card-more-description {
+    display: none;
+  }
+}
+
+.card-info-big {
+  position: absolute;
+  bottom: 0px;
+  display: flex;
+  flex-direction: column;
+  height: 250px;
+  transition: 0.6s ease;
+  .card-description {
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+    h3 {
+      font-size: 24px;
+    }
+    p {
+      font-size: 20px;
+      opacity: 0.7;
+      font-weight: 200;
+    }
+  }
+  .card-more-description {
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    h6 {
+      font-size: 15px;
+      display: inline;
+    }
+    p {
+      font-size: 12px;
+      font-weight: 200;
+      display: inline;
+    }
+  }
 }
