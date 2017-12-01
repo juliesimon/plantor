@@ -14,10 +14,11 @@ class ReviewsController < ApplicationController
     @booking = Booking.find(params[:booking_id])
     @review.booking = @booking
     authorize @review
+    @review.user = current_user
     if @review.save
       redirect_to dashboard_user_path(current_user)
     else
-      render :new
+      redirect_to dashboard_user_path(current_user)
     end
   end
 

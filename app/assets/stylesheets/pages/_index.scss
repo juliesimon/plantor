@@ -30,21 +30,11 @@ p {
 .search-bar {
   margin-left: 30px;
   width: 72%;
+  padding-right: 10px;
 }
 
-.search {
-  display: flex;
-  align-items: center;
-}
-
-.search-bar-home {
-  flex: 0 60%;
-
-}
-.start-button {
-  flex: 1;
-  border: none;
-
+.search-bar .form-control {
+  font-size: 15px;
 }
 
 .main-content-index {
@@ -53,10 +43,40 @@ p {
 
 .search-index {
   display: flex;
-  margin-left: 56px;
+  margin-left: 30px;
   margin-top: 36px;
   margin-bottom: -21px;
+  border-radius: 3px;
 }
 
+.addressbox {
+  text-align: center;
+  margin-right: 0px;
+  padding-left: 10px;
 
+}
+
+.addressbox h3 {
+  font-size: 18px;
+  text-align: left;
+
+}
+
+.addressbox p {
+  font-size: 12px;
+  text-align: left;
+}
+
+.img-circle-map {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border: 1px solid $green;
+  margin-top: 20px;
+}
+
+#arrow {
+  font-size: 30px;
+  color : $green-dark;
+}
 
