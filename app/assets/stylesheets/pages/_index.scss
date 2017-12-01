@@ -30,6 +30,11 @@ p {
 .search-bar {
   margin-left: 30px;
   width: 72%;
+  padding-right: 10px;
+}
+
+.search-bar .form-control {
+  font-size: 15px;
 }
 
 .search {
@@ -53,9 +58,10 @@ p {
 
 .search-index {
   display: flex;
-  margin-left: 56px;
+  margin-left: 30px;
   margin-top: 36px;
   margin-bottom: -21px;
+  border-radius: 3px;
 }
 
 

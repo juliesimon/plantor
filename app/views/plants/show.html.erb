@@ -26,7 +26,7 @@
       <div id="plant-reviews">
           <% if @plant.reviews.any? %>
             <h6><i class="fa fa-comments-o" aria-hidden="true"></i> Reviews about the plant: </h6>
-            <% @plant.reviews.each do |review| %>
+              <div class="review-content"> <% @plant.reviews.each do |review| %>
               <% review.rating.times do %>
                 <i class="fa fa-star" aria-hidden="true"></i>
               <% end %>
@@ -35,6 +35,7 @@
               <% end %>
              <p><%= review.content %></p>
             <% end %>
+            </div>
           <% else %>
           <h6><i class="fa fa-comments-o" aria-hidden="true"></i> No reviews about this plant yet ! </h6>
        <% end %>
