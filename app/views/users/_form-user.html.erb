@@ -1,9 +1,8 @@
-
 <div class= "container-form">
   <%= simple_form_for @user do |f| %>
     <%= f.input :username, label: 'Username', placeholder: 'Username'%>
     <%= f.input :photo, placeholder: "Add a Photo", label: false %>
     <%= f.input :photo_cache, as: :hidden %>
-    <%= f.submit "Add to profile", :class =>"btn-secondary"  %>
+    <%= f.submit "Add to Profile", :class =>"btn-secondary form-button"  %>
   <% end %>
 </div>
