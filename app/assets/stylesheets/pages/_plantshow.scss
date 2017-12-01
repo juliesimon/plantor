@@ -49,8 +49,9 @@
   color: #797373;
 }
 
-.plant-reviews {
+#plant-reviews {
   margin-bottom: 10px;
+  margin-right: 50px;
 }
 
 .map h6 {
@@ -58,8 +59,14 @@
   padding-bottom: 20px;
 }
 
+
+.review-content {
+  border-bottom-style: solid;
+  border-width: 1px;
+  border-color: rgba(0, 0, 0, 0.8);
 .yellow-star {
   color: $yellow;
+  }
 }
 
 .empty-yellow-star {
