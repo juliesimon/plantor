@@ -44,13 +44,33 @@ p {
 }
 
 .addressbox {
-  text-align: left;
-  padding: 10px;
+  text-align: center;
+  margin-right: 0px;
+  padding-left: 10px;
+
 }
 
 .addressbox h3 {
   font-size: 18px;
+  text-align: left;
+
 }
 
+.addressbox p {
+  font-size: 12px;
+  text-align: left;
+}
 
+.img-circle-map {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border: 1px solid $green;
+  margin-top: 20px;
+}
+
+#arrow {
+  font-size: 30px;
+  color : $green-dark;
+}
 
