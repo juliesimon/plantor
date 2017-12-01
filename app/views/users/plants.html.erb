@@ -9,8 +9,8 @@
       <li class="plant-list">
         <div class="plant-list-plant-photo"></div>
         <div class="plant-list-name"><strong>Title</strong></div>
-        <div class="plant-list-small"><strong>Pending<br>Request</strong></div>
-        <div class="plant-list-small"><strong>Accepted<br>Request</strong></div>
+        <div class="plant-list-small"><strong>Pending<br>Requests</strong></div>
+        <div class="plant-list-small"><strong>Accepted<br>Requests</strong></div>
         <div class="plant-list-small"><strong>Average<br>Rating</strong></div>
       </li>
       <% @plants.each do |plant| %>
@@ -28,7 +28,6 @@
             <%= link_to plant.bookings.where(status:"accepted").length, dashboard_user_path(@user) %>
           </div>
           <div class="plant-list-small">
-
           </div>
         </li>
       <% end %>
