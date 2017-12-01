@@ -10,8 +10,34 @@
 
 .form-new {
   height: calc(100vh - 125px);
+  min-width: 500px;
+}
+
+.container-form {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+
+.icon {
+  height: 40px;
 }
 
 label {
   font-weight: 400;
 }
+
+
+.form-new .form-control {
+  font-size: 14px;
+}
+.total-price {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  .total-price-result {
+    font-weight: bold;
+  }
+}
+
