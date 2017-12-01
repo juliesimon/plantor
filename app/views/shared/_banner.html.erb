@@ -2,19 +2,10 @@
   <div class="banner-home">
     <h1> Plantor</h1>
     <p>Rent beautiful plants from people around you</p>
-    <div class="search">
-      <div class="search-bar-home">
-          <%= form_tag plants_path, method: :get do %>
-          <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-            placeholder: "Christmas Tree"
-            %>
-          <% end %>
-        </div>
-        <div class="start-button">
+      <div class="enter">
+           <div class="btn-home">
           <%= link_to "Find a plant", plants_path(@plant), class: "btn-home" %>
         </div>
-    </div>
+      </div>
   </div>
 </div>
