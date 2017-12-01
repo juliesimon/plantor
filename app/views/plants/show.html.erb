@@ -18,7 +18,7 @@
         <h6><i class="fa fa-location-arrow" aria-hidden="true"></i> Address:</h6>
           <p><%= @plant.address %></p>
         <h6><i class="fa fa-eur" aria-hidden="true"></i> Price/day: </h6>
-        <p><%= @plant.price_per_day %> € </p>
+        <p class="price-per-day"><%= @plant.price_per_day %></p>
         <h6><i class="fa fa-user" aria-hidden="true"></i> Owner: </h6>
         <p><%= @plant.user.firstname %> <%= @plant.user.lastname %>
            <%= mail_to @plant.user.email, '<i class="fa fa-envelope" aria-hidden="true"></i>'.html_safe %></p>
