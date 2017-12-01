@@ -21,6 +21,8 @@
           <div class="plant-list-name">
             <%= link_to plant.name, plant_path(plant) %>
             <%= link_to '<i class="fa fa-pencil" aria-hidden="true"></i>'.html_safe, edit_plant_path(plant) %>
+            <%= link_to '<i class="fa fa-times delete-red" aria-hidden="true"></i>'.html_safe, plant_path(plant), method: :delete,
+            data: { confirm: "Are you sure you want to delete this plant?" } %>
           </div>
           <div class="plant-list-small">
             <%= link_to plant.bookings.where(status:"pending").length, dashboard_user_path(@user) %>
