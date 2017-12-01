@@ -101,7 +101,13 @@
                   <% if booking.status == "accepted" && (Time.now < booking.ends_at) %>
                     <li class="booking">
                       <div class="booking-plant-photo"><%= cl_image_tag booking.plant.photo, crop: :fill %></div>
-                      <div class="booking-user-photo"><%= image_tag('https://cours-informatique-gratuit.fr/wp-content/uploads/2014/05/compte-utilisateur-1.png') %></div>
+                      <div class="booking-user-photo">
+                        <% if booking.plant.user.photo.url.present? %>
+                          <%= cl_image_tag(booking.plant.user.photo.url(:bright_face)) %>
+                        <% else %>
+                          <%= image_tag "user-face.png", class: "img-circle-dashboard" %>
+                        <% end %>
+                      </div>
                       <div class="booking-plant"><%= booking.plant.name %></div>
                       <div class="booking-user"><%= booking.plant.user.firstname %> <%= booking.plant.user.lastname %></div>
                       <div class="booking-dates">
@@ -135,7 +141,13 @@
                   <% if booking.status == "accepted" && (Time.now > booking.ends_at) %>
                     <li class="booking">
                       <div class="booking-plant-photo"><%= cl_image_tag booking.plant.photo, crop: :fill %></div>
-                      <div class="booking-user-photo"><%= image_tag('https://cours-informatique-gratuit.fr/wp-content/uploads/2014/05/compte-utilisateur-1.png') %></div>
+                      <div class="booking-user-photo">
+                        <% if booking.plant.user.photo.url.present? %>
+                          <%= cl_image_tag(booking.plant.user.photo.url(:bright_face)) %>
+                        <% else %>
+                          <%= image_tag "user-face.png", class: "img-circle-dashboard" %>
+                        <% end %>
+                      </div>
                       <div class="booking-plant"><%= booking.plant.name %></div>
                       <div class="booking-user"><%= booking.plant.user.firstname %> <%= booking.plant.user.lastname %></div>
                       <div class="booking-dates">
