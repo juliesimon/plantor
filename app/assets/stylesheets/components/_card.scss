@@ -62,8 +62,8 @@
 
 .card-info-small {
   position: absolute;
-  bottom: 10px;
-  left: 10px;
+  bottom: 0px;
+  left: 0px;
   margin-right: 10px;
   .card-description {
     color: white;
@@ -89,11 +89,11 @@
 }
 
 .card-info-small {
+  height: 150px;
   position: absolute;
   bottom: 0px;
   display: flex;
   flex-direction: column;
-  transition: 0.4s ease;
   .card-description {
     color: white;
     padding-left: 10px;
@@ -109,20 +109,6 @@
   }
   .card-more-description {
     display: none;
-    color: white;
-    background-image: linear-gradient(-225deg, rgba(100, 100, 100, 0.6) 0%, rgba(150, 150, 150, 0.6) 50%);
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 10px;
-    h6 {
-      font-size: 15px;
-      display: inline;
-    }
-    p {
-      font-size: 12px;
-      font-weight: 200;
-      display: inline;
-    }
   }
 }
 
@@ -131,7 +117,8 @@
   bottom: 0px;
   display: flex;
   flex-direction: column;
-  transition: 1s ease;
+  height: 250px;
+  transition: 0.6s ease;
   .card-description {
     color: white;
     padding-left: 10px;
@@ -146,9 +133,7 @@
     }
   }
   .card-more-description {
-    display: block;
     color: white;
-    background-image: linear-gradient(-225deg, rgba(100, 100, 100, 0.6) 0%, rgba(150, 150, 150, 0.6) 50%);
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 10px;
