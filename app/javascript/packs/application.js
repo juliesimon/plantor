@@ -12,7 +12,10 @@ const endsAt = document.querySelector("#booking_ends_at");
 const totalPrice = document.querySelector(".total-price");
 const totalPriceComputation = document.querySelector(".total-price-computation");
 const totalPriceResult = document.querySelector(".total-price-result");
-const pricePerDay = parseInt(document.querySelector(".price-per-day").innerText);
+if (document.querySelector(".price-per-day")) {
+  const pricePerDay = parseInt(document.querySelector(".price-per-day").innerText);
+}
+
 
 function numberOfDays() {
   if (startsAt.value !== "" && endsAt.value !== "") {

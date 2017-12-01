@@ -158,7 +158,25 @@
                         <% if booking.reviews.present? %>
                           <i class="fa fa-calendar-o" aria-hidden="true"></i>
                         <% else %>
-                          <%= link_to '<i class="fa fa-commenting" aria-hidden="true"></i>'.html_safe, new_booking_review_path(booking) %>
+
+                          <button type="button" class="btn-secondary form-button btn-vertical-align-icon" data-toggle="modal" data-target="#addreviewFormModal"><i class="fa fa-commenting" aria-hidden="true"></i> Review </button>
+
+                          <!-- Modal add a review -->
+                          <div class="modal fade" id="addreviewFormModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <h5 class="modal-title" id="exampleModalLabel">Add a review</h5>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                                  <%= render 'reviews/form', booking: booking, review: Review.new %>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
                         <% end %>
                       </div>
                     </li>
@@ -301,7 +319,7 @@
   </div>
 </div>
 
-<!-- Modal -->
+<!-- Modal edit -->
 <div class="modal fade" id="editFormModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
