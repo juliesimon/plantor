@@ -6,12 +6,30 @@
     </div>
     <div class="card-more-description">
       <div>
-        <h6><i class="fa fa-leaf" aria-hidden="true"></i>Category:</h6>
+        <h6><i class="fa fa-leaf" aria-hidden="true"></i> Category:</h6>
         <p><%= plant.category %></p>
       </div>
       <div>
-        <h6><i class="fa fa-star" aria-hidden="true"></i>Rating:</h6>
-        <p><%= plant.category %></p>
+        <h6><i class="fa fa-star" aria-hidden="true"></i> Rating:</h6>
+        <p>
+          <% total = 0 %>
+          <% nb_reviews = 0 %>
+          <% plant.reviews.each do |review| %>
+            <% nb_reviews += 1 %>
+            <% total += review.rating %>
+          <% end %>
+          <% if nb_reviews == 0 %>
+            No reviews yet
+          <% else %>
+            <% stars = (total / nb_reviews).round  %>
+            <% stars.times do %>
+              <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+            <% end %>
+            <% (5 - stars).times do %>
+              <i class="fa fa-star-o empty-yellow-star" aria-hidden="true"></i>
+            <% end %>
+          <% end %>
+        </p>
       </div>
     </div>
   </div>
