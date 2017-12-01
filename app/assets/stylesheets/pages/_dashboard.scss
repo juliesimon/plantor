@@ -113,10 +113,10 @@
   opacity: 1;
 }
 #delete-red, #delete-red-no-hover {
-  color: $red;
-  opacity: 0.7;
+  color: $red !important;
+  opacity: 0.7 !important;
 }
-#delete-red,{
+#delete-red:hover,{
   opacity: 1;
  }
 #wait-orange {
