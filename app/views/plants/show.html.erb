@@ -28,10 +28,10 @@
             <h6><i class="fa fa-comments-o" aria-hidden="true"></i> Reviews about the plant: </h6>
               <div class="review-content"> <% @plant.reviews.each do |review| %>
               <% review.rating.times do %>
-                <i class="fa fa-star" aria-hidden="true"></i>
+                <i class="fa fa-star yellow-star" aria-hidden="true"></i>
               <% end %>
               <% (5 - review.rating).times do %>
-                <i class="fa fa-star-o" aria-hidden="true"></i>
+                <i class="fa fa-star-o empty-yellow-star" aria-hidden="true"></i>
               <% end %>
              <p><%= review.content %></p>
             <% end %>

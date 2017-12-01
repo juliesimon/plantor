@@ -115,21 +115,43 @@ if (mapElement) { // don't try to build a map if there's no div#map to inject in
     map.setZoom(14);
   } else {
     map.fitLatLngBounds(markers);
-
   }
 
+  // const myLatLng = new google.maps.LatLng(place[1], place[2]);
+  // const marker = new google.maps.Marker({
+  //       position: myLatLng,
+  //       map: map
+  // });
+
+  // const marker = new google.maps.Marker({
+
+  // });
+
+  //  map.addListener('mouseover', function() {
+  //   console.log('event.currentTarget');
+  //   // window.location.href = marker.url;
+  // });
+  map.markers.forEach((marker) => {
+    marker.addListener('mouseover', () => {
+      console.log(marker);
+      infowindow.setContent(contentStringCal);
+      infoWindow.open(map,marker);
+    });
+  });
 
 }
 autocomplete();
 
 
 
-document.querySelectorAll(".card").forEach((card) => {
-  card.addEventListener("mouseover", (event) => {
-    // marker.setIcon('logo.png')
-    // event.currentTarget.classList.toggle("test");
-  });
-});
+
+
+// document.querySelectorAll(".card").forEach((card) => {
+//   card.addEventListener("mouseover", (event) => {
+//     // marker.setIcon('logo.png')
+//     // event.currentTarget.classList.toggle("test");
+//   });
+// });
 
   // markers[0].addListener('click', function() {
   //   console.log("yes");

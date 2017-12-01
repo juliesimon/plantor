@@ -9,8 +9,8 @@
       <li class="plant-list">
         <div class="plant-list-plant-photo"></div>
         <div class="plant-list-name"><strong>Title</strong></div>
-        <div class="plant-list-small"><strong>Pending<br>Request</strong></div>
-        <div class="plant-list-small"><strong>Accepted<br>Request</strong></div>
+        <div class="plant-list-small"><strong>Pending<br>Requests</strong></div>
+        <div class="plant-list-small"><strong>Accepted<br>Requests</strong></div>
         <div class="plant-list-small"><strong>Average<br>Rating</strong></div>
       </li>
       <% @plants.each do |plant| %>
@@ -20,6 +20,7 @@
           </div>
           <div class="plant-list-name">
             <%= link_to plant.name, plant_path(plant) %>
+            <%= link_to '<i class="fa fa-pencil" aria-hidden="true"></i>'.html_safe, edit_plant_path(plant) %>
           </div>
           <div class="plant-list-small">
             <%= link_to plant.bookings.where(status:"pending").length, dashboard_user_path(@user) %>
@@ -28,7 +29,23 @@
             <%= link_to plant.bookings.where(status:"accepted").length, dashboard_user_path(@user) %>
           </div>
           <div class="plant-list-small">
-
+            <% total = 0%>
+            <% nb_reviews = 0 %>
+            <% plant.reviews.each do |review| %>
+              <% nb_reviews += 1 %>
+              <% total += review.rating %>
+            <% end %>
+            <% if nb_reviews == 0 %>
+              No reviews yet
+            <% else %>
+              <% stars = (total / nb_reviews).round  %>
+              <% stars.times do %>
+                <i class="fa fa-star yellow-star" aria-hidden="true"></i>
+              <% end %>
+              <% (5 - stars).times do %>
+                <i class="fa fa-star-o empty-yellow-star" aria-hidden="true"></i>
+              <% end %>
+            <% end %>
           </div>
         </li>
       <% end %>
