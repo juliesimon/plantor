@@ -62,8 +62,9 @@ skip_before_action :authenticate_user!, only: [:index, :show]
 
   def destroy
     authorize @plant
+    @user = @plant.user
     @plant.destroy
-    redirect_to plants_path
+    redirect_to plants_user_path(@user)
   end
 
   private

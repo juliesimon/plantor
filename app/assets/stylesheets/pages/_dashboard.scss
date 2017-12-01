@@ -5,12 +5,21 @@
 .form-button{
   border: solid #146d4f !important;
   font-weight: lighter !important;
-  width : 120px !important;
+  width : 140px !important;
+  margin: 10px;
   &:hover {
     color: white !important;
   }
-  margin: 10px;
+  i {
+    font-size: 12px;
+  }
 }
+.btn-vertical-align-icon {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
 .form-button:hover {
   box-shadow: 0 0 10px rgba(0,0,0,0.4);
 }
@@ -19,7 +28,7 @@
   flex: 0 0 25%;
   position: sticky;
   padding: 0;
-  height: 70vh;
+  height: 80vh;
 }
 .profile-dash .right-dash {
   flex: 0 0 73%;
@@ -29,7 +38,7 @@
 }
 .profile-dash .pending {
 }
-.main-dash, .pending, .accepted {
+.main-dash, .pending, .accepted, .past {
   background: white;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
   padding: 10px;
@@ -89,27 +98,26 @@
   background: #37B686;
   opacity: 0.7;
 }
-#validate-green {
+#validate-green, #validate-green-no-hover {
   color: $green;
   opacity: 0.7;
-  &:hover {
-    opacity: 1;
-  }
+}
+#validate-green:hover {
+  opacity: 1;
 }
 #delete-red {
   color: $red;
   opacity: 0.7;
-  &:hover {
-    opacity: 1;
-  }
 }
 #wait-orange {
   color: $orange;
   opacity: 0.7;
-  &:hover {
-    opacity: 1;
-  }
 }
+#future-blue {
+  color: $blue;
+  opacity: 0.7;
+}
+
 .booking {
   display: flex;
   align-items: center;
@@ -117,22 +125,22 @@
   font-size: 15px;
   margin-bottom: 5px;
 }
-.pending-bookings {
+.pending-bookings, .accepted-bookings, .past-bookings {
   width: 98%;
 }
-.pending-booking-dates {
+.booking-dates {
   flex: 0 0 25%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  .pending-booking-start {
+  .booking-start {
     flex: 0 0 50%;
   }
-  .pending-booking-end {
+  .booking-end {
     flex: 0 0 50%;
   }
 }
-.pending-booking-user-photo, .pending-booking-plant-photo {
+.booking-user-photo, .booking-plant-photo {
   flex: 0 0 5%;
   img {
     height: 30px;
@@ -141,13 +149,13 @@
     border: 1px solid $green;
   }
 }
-.pending-booking-user {
+.booking-user {
   flex: 0 0 27.5%;
 }
-.pending-booking-plant {
+.booking-plant {
   flex: 0 0 27.5%;
 }
-.pending-booking-status {
+.booking-status {
   flex: 0 0 10%;
 }
 .img-circle-dashboard {
@@ -162,7 +170,7 @@
 }
 .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
   background-color: #146d4f;
-  border-top-radius: 3px;
+  border-top-radius: 4px;
   color: white;
   font-weight: lighter;
   font-size: 17px;
@@ -183,9 +191,22 @@ ul.nav.nav-tabs {
   border-bottom: none;
 }
 
-
 .modal-title {
   text-align: center;
   margin-right: 0px;
+
+.main-dash li, .pending li, .accepted li, .past li {
+  position:relative;
+}
+.notify-badge, {
+  position: absolute;
+  top: -10px;
+  background: $red;
+  right: -7.5px;
+  text-align: center;
+  border-radius: 50%;
+  color: white;
+  padding: 5px 10px;
+  font-size: 10px;
 }
 

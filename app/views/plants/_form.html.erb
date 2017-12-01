@@ -1,4 +1,4 @@
-<%= simple_form_for @plant do |f| %>
+<%= simple_form_for @plant, id: "new_plant" do |f| %>
   <%= f.error_notification %>
   <%= f.input :name, label: 'Name', placeholder: 'Cute, easy-going cactus'%>
   <%= f.input :instruction, label: 'Instruction', placeholder: 'This cactus is easy to take-care of. It needs to stay away from direct light but still be in a sunny room. Almost never water it !' %>
