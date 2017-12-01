@@ -33,7 +33,7 @@ class BookingsController < ApplicationController
     @booking.status = "declined"
     authorize @booking
     if @booking.save
-      redirect_to dashboard_user_path(@booking.user)
+      redirect_to dashboard_user_path(current_user)
     else
       render 'plants/show'
     end
