@@ -11,7 +11,8 @@
 }
 .container-plant {
   display: flex;
-  margin: 5px 5px 0 5px;
+  margin: 0 80px;
+
 }
 .plant-information {
   width: 65%;
@@ -38,7 +39,8 @@
   font-size: 16px;
   color: #000000;
   border-top: black;
-  padding: 10px 10px;
+  padding: 0 60px 0 0;
+  text-align: justify;
 }
 
 #plant-data {
@@ -49,4 +51,9 @@
 
 .plant-reviews {
   margin-bottom: 10px;
+}
+
+.map h6 {
+  margin: 0 80px;
+  padding-bottom: 20px;
 }
