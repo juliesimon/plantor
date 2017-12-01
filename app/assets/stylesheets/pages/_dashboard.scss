@@ -98,27 +98,26 @@
   background: #37B686;
   opacity: 0.7;
 }
-#validate-green {
+#validate-green, #validate-green-no-hover {
   color: $green;
   opacity: 0.7;
-  &:hover {
-    opacity: 1;
-  }
+}
+#validate-green:hover {
+  opacity: 1;
 }
 #delete-red {
   color: $red;
   opacity: 0.7;
-  &:hover {
-    opacity: 1;
-  }
 }
 #wait-orange {
   color: $orange;
   opacity: 0.7;
-  &:hover {
-    opacity: 1;
-  }
 }
+#future-blue {
+  color: $blue;
+  opacity: 0.7;
+}
+
 .booking {
   display: flex;
   align-items: center;
