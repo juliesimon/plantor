@@ -6,6 +6,10 @@
       <%= f.error_notification %>
       <%= f.input :starts_at, as: :string, required: false, input_html: {class: "datepicker"} %>
       <%= f.input :ends_at, as: :string, required: false, input_html: {class: "datepicker"} %>
+      <div class="total-price hidden">
+        <div class="total-price-computation"></div>
+        <div class="total-price-result"></div>
+      </div>
       <%= f.submit "Book it", :class =>"btn btn-secondary"  %>
       <% end %>
     </div>
