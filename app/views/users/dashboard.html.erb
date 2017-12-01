@@ -17,7 +17,7 @@
         <div class="profile-btns">
           <div class="flex-column">
             <button type="button" class="btn-secondary form-button btn-vertical-align-icon" data-toggle="modal" data-target="#editFormModal"> <i class="fa fa-pencil" aria-hidden="true"></i> Edit Profile </button>
-            <%= link_to '<i class="fa fa-list-ul" aria-hidden="true"></i> All My Plants'.html_safe, user_path(current_user), class: "btn-secondary form-button btn-vertical-align-icon" %>
+            <%= link_to '<i class="fa fa-list-ul" aria-hidden="true"></i> All My Plants'.html_safe, plants_user_path(current_user), class: "btn-secondary form-button btn-vertical-align-icon" %>
             <%= link_to '<i class="fa fa-plus" aria-hidden="true"></i> Add A Plant'.html_safe, new_plant_path, class: "btn-secondary form-button btn-vertical-align-icon" %>
           </div>
         </div>
@@ -110,9 +110,9 @@
                       </div>
                       <div class="booking-status">
                         <% if booking.status == "accepted" && (Time.now < booking.starts_at) %>
-                          <i id="delete-red" class="fa fa-calendar-times-o" aria-hidden="true"></i>
+                          <i id="future-blue" class="fa fa-calendar-times-o" aria-hidden="true"></i>
                         <% else %>
-                          <i id="validate-green" class="fa fa-calendar-check-o" aria-hidden="true"></i>
+                          <i id="validate-green-no-hover" class="fa fa-calendar-check-o" aria-hidden="true"></i>
                         <% end %>
                       </div>
                     </li>
@@ -251,9 +251,9 @@
                         </div>
                         <div class="booking-status">
                           <% if booking.status == "accepted" && (Time.now < booking.starts_at) %>
-                            <i id="delete-red" class="fa fa-calendar-times-o" aria-hidden="true"></i>
+                            <i id="future-blue" class="fa fa-calendar-times-o" aria-hidden="true"></i>
                           <% else %>
-                            <i id="validate-green" class="fa fa-calendar-check-o" aria-hidden="true"></i>
+                            <i id="validate-green-no-hover" class="fa fa-calendar-check-o" aria-hidden="true"></i>
                           <% end %>
                         </div>
                       </li>
@@ -306,12 +306,13 @@
 
   </div>
 </div>
+
 <!-- Modal edit -->
 <div class="modal fade" id="editFormModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Edit user</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Edit Profile</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
