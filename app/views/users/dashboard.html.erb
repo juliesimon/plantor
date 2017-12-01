@@ -17,7 +17,7 @@
         <div class="profile-btns">
           <div class="flex-column">
             <button type="button" class="btn-secondary form-button btn-vertical-align-icon" data-toggle="modal" data-target="#editFormModal"> <i class="fa fa-pencil" aria-hidden="true"></i> Edit Profile </button>
-            <%= link_to '<i class="fa fa-list-ul" aria-hidden="true"></i> All My Plants'.html_safe, user_path(current_user), class: "btn-secondary form-button btn-vertical-align-icon" %>
+            <%= link_to '<i class="fa fa-list-ul" aria-hidden="true"></i> All My Plants'.html_safe, plants_users_path(current_user), class: "btn-secondary form-button btn-vertical-align-icon" %>
             <%= link_to '<i class="fa fa-plus" aria-hidden="true"></i> Add A Plant'.html_safe, new_plant_path, class: "btn-secondary form-button btn-vertical-align-icon" %>
           </div>
         </div>
