@@ -1,5 +1,5 @@
 <div class="addressbox">
-  <div> <%= cl_image_tag plant.photo, class: "img-circle", crop: :fill %></div>
+  <div> <%= cl_image_tag plant.photo, class: "img-circle-map", crop: :fill %></div>
   <h3> <%= plant.name %></h3>
   <p> Located <%= plant.address %></p>
   <%= link_to plant_path(plant) do %><i id="arrow" class="fa fa-long-arrow-right"></i><% end %>

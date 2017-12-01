@@ -46,11 +46,14 @@ p {
 .addressbox {
   text-align: center;
   margin-right: 0px;
+  padding-left: 10px;
+
 }
 
 .addressbox h3 {
   font-size: 18px;
   text-align: left;
+
 }
 
 .addressbox p {
@@ -59,9 +62,11 @@ p {
 }
 
 .img-circle-map {
-  height: 100px;
-  width: 100px;
-  border-radius: 25%;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border: 1px solid $green;
+  margin-top: 20px;
 }
 
 #arrow {
